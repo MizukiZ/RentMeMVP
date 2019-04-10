@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F4C515A66E096A0A990DBD5 /* libPods-RentMeMVP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */; };
 		D3A5449C225C3DE300AC5647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5449B225C3DE300AC5647 /* AppDelegate.m */; };
 		D3A5449F225C3DE300AC5647 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5449E225C3DE300AC5647 /* ViewController.m */; };
 		D3A544A2225C3DE300AC5647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A544A0225C3DE300AC5647 /* Main.storyboard */; };
 		D3A544A4225C3DE400AC5647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3A544A3225C3DE400AC5647 /* Assets.xcassets */; };
 		D3A544A7225C3DE400AC5647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A544A5225C3DE400AC5647 /* LaunchScreen.storyboard */; };
 		D3A544AA225C3DE400AC5647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A544A9225C3DE400AC5647 /* main.m */; };
+		D3A544B1225C3E5B00AC5647 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3A544B0225C3E5B00AC5647 /* GoogleService-Info.plist */; };
+		D3A544B3225C423D00AC5647 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A544B2225C423D00AC5647 /* LoginController.m */; };
+		D3A544B5225C424C00AC5647 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A544B4225C424C00AC5647 /* HomeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		009450D309FE1FBE7C1385C2 /* Pods-RentMeMVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentMeMVP.debug.xcconfig"; path = "Target Support Files/Pods-RentMeMVP/Pods-RentMeMVP.debug.xcconfig"; sourceTree = "<group>"; };
+		1AB1B867CE1B013548AB80AF /* Pods-RentMeMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentMeMVP.release.xcconfig"; path = "Target Support Files/Pods-RentMeMVP/Pods-RentMeMVP.release.xcconfig"; sourceTree = "<group>"; };
 		D3A54497225C3DE300AC5647 /* RentMeMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentMeMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A5449A225C3DE300AC5647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3A5449B225C3DE300AC5647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +32,12 @@
 		D3A544A6225C3DE400AC5647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3A544A8225C3DE400AC5647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3A544A9225C3DE400AC5647 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3A544B0225C3E5B00AC5647 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3A544B2225C423D00AC5647 /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		D3A544B4225C424C00AC5647 /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		D3A544B6225C425D00AC5647 /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		D3A544B7225C426D00AC5647 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RentMeMVP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4C515A66E096A0A990DBD5 /* libPods-RentMeMVP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B63DA69F6520BDE38D7365E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C36014A7AD43E3B788C54CC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				009450D309FE1FBE7C1385C2 /* Pods-RentMeMVP.debug.xcconfig */,
+				1AB1B867CE1B013548AB80AF /* Pods-RentMeMVP.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D3A5448E225C3DE300AC5647 = {
 			isa = PBXGroup;
 			children = (
 				D3A54499225C3DE300AC5647 /* RentMeMVP */,
 				D3A54498225C3DE300AC5647 /* Products */,
+				C36014A7AD43E3B788C54CC4 /* Pods */,
+				B63DA69F6520BDE38D7365E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,10 +95,15 @@
 				D3A5449D225C3DE300AC5647 /* ViewController.h */,
 				D3A5449E225C3DE300AC5647 /* ViewController.m */,
 				D3A544A0225C3DE300AC5647 /* Main.storyboard */,
+				D3A544B6225C425D00AC5647 /* HomeController.h */,
 				D3A544A3225C3DE400AC5647 /* Assets.xcassets */,
+				D3A544B7225C426D00AC5647 /* LoginController.h */,
 				D3A544A5225C3DE400AC5647 /* LaunchScreen.storyboard */,
+				D3A544B4225C424C00AC5647 /* HomeController.m */,
+				D3A544B2225C423D00AC5647 /* LoginController.m */,
 				D3A544A8225C3DE400AC5647 /* Info.plist */,
 				D3A544A9225C3DE400AC5647 /* main.m */,
+				D3A544B0225C3E5B00AC5647 /* GoogleService-Info.plist */,
 			);
 			path = RentMeMVP;
 			sourceTree = "<group>";
@@ -78,6 +115,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3A544AD225C3DE400AC5647 /* Build configuration list for PBXNativeTarget "RentMeMVP" */;
 			buildPhases = (
+				EDCAC829F105B06842C41CE6 /* [CP] Check Pods Manifest.lock */,
 				D3A54493225C3DE300AC5647 /* Sources */,
 				D3A54494225C3DE300AC5647 /* Frameworks */,
 				D3A54495225C3DE300AC5647 /* Resources */,
@@ -97,6 +135,9 @@
 		D3A5448F225C3DE300AC5647 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					register,
+				);
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Mizuki Zenta";
 				TargetAttributes = {
@@ -129,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3A544A7225C3DE400AC5647 /* LaunchScreen.storyboard in Resources */,
+				D3A544B1225C3E5B00AC5647 /* GoogleService-Info.plist in Resources */,
 				D3A544A4225C3DE400AC5647 /* Assets.xcassets in Resources */,
 				D3A544A2225C3DE300AC5647 /* Main.storyboard in Resources */,
 			);
@@ -136,13 +178,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EDCAC829F105B06842C41CE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RentMeMVP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3A54493225C3DE300AC5647 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D3A5449F225C3DE300AC5647 /* ViewController.m in Sources */,
+				D3A544B3225C423D00AC5647 /* LoginController.m in Sources */,
 				D3A544AA225C3DE400AC5647 /* main.m in Sources */,
+				D3A544B5225C424C00AC5647 /* HomeController.m in Sources */,
 				D3A5449C225C3DE300AC5647 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +352,7 @@
 		};
 		D3A544AE225C3DE400AC5647 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 009450D309FE1FBE7C1385C2 /* Pods-RentMeMVP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +369,7 @@
 		};
 		D3A544AF225C3DE400AC5647 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AB1B867CE1B013548AB80AF /* Pods-RentMeMVP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
