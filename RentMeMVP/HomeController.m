@@ -29,7 +29,26 @@
     
     [[self.ref child:@"Post"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *dict = snapshot.value;
-        NSLog(@"##########################%@",dict);
+//        NSLog(@"##########################%@",dict);
+        
+        NSArray *keys = [dict allKeys];
+        for (int i = 0; i < keys.count; i++)
+        {
+            id key = keys[i];
+            
+            // get each attirbutes
+            NSDictionary * value = dict[key];
+            NSString *title =value[@"title"];
+            NSString *category =value[@"category"];
+            NSString *image =value[@"image"];
+            NSString *description =value[@"description"];
+            NSString *userId = value[@"user_id"];
+            id cost = value[@"cost"];
+            Boolean rented = value[@"rented"];
+            NSDate *createAt = [NSDate dateWithTimeIntervalSince1970:([value[@"created_at"] floatValue] / 1000.0)];
+
+            
+        }
         
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"%@", error.localizedDescription);
