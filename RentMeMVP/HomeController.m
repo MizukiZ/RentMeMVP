@@ -10,9 +10,11 @@
 @import Firebase;
 
 @interface HomeController ()
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation HomeController
+
 - (IBAction)LogoutBtn:(id)sender {
     NSError *signOutError;
     BOOL status = [[FIRAuth auth] signOut:&signOutError];
@@ -22,4 +24,15 @@
     }
 }
 
+- (void)viewDidLoad{
+    self.ref = [[FIRDatabase database] reference];
+    
+    [[self.ref child:@"Post"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSDictionary *dict = snapshot.value;
+        NSLog(@"##########################%@",dict);
+        
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+}
 @end
