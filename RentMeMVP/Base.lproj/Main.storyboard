@@ -199,34 +199,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="84" id="vl7-Ql-Cfr">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="84"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="80" id="vl7-Ql-Cfr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vl7-Ql-Cfr" id="d6o-oB-KEu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOo-Lz-fb1">
-                                                    <rect key="frame" x="102" y="24" width="156" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOo-Lz-fb1">
+                                                    <rect key="frame" x="100" y="31" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlu-Ns-UDf">
-                                                    <rect key="frame" x="285" y="24" width="80" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlu-Ns-UDf">
+                                                    <rect key="frame" x="323" y="31" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-mQ-q4c">
-                                                    <rect key="frame" x="14" y="3" width="58" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-mQ-q4c">
+                                                    <rect key="frame" x="10" y="10" width="70" height="70"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="2wS-ip-bVY"/>
+                                                        <constraint firstAttribute="height" constant="70" id="LgB-fY-diC"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8SB-mQ-q4c" firstAttribute="top" secondItem="d6o-oB-KEu" secondAttribute="top" constant="10" id="1Hh-7E-vhg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Dlu-Ns-UDf" secondAttribute="bottom" constant="20" id="UFp-Qz-TSM"/>
+                                                <constraint firstItem="BOo-Lz-fb1" firstAttribute="top" secondItem="d6o-oB-KEu" secondAttribute="topMargin" constant="20" id="a9G-xA-Oa1"/>
+                                                <constraint firstItem="8SB-mQ-q4c" firstAttribute="leading" secondItem="d6o-oB-KEu" secondAttribute="leading" constant="10" id="b9T-tj-M3M"/>
+                                                <constraint firstItem="BOo-Lz-fb1" firstAttribute="leading" secondItem="8SB-mQ-q4c" secondAttribute="trailing" constant="20" id="bMj-fe-BUa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Dlu-Ns-UDf" secondAttribute="trailing" constant="29" id="dAS-ls-TFY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BOo-Lz-fb1" secondAttribute="bottom" constant="20" id="p8p-oq-a6U"/>
+                                                <constraint firstItem="Dlu-Ns-UDf" firstAttribute="top" secondItem="d6o-oB-KEu" secondAttribute="topMargin" constant="20" id="sQl-oA-XY4"/>
+                                                <constraint firstAttribute="bottom" secondItem="8SB-mQ-q4c" secondAttribute="bottom" constant="10" id="yKC-4L-1cP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

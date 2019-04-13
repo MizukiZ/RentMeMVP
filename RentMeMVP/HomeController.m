@@ -29,7 +29,6 @@
     [super viewDidLoad];
     self.postObjectArray = [NSMutableArray array];
     
-    _table.rowHeight = UITableViewAutomaticDimension;
     
     self.ref = [[FIRDatabase database] reference];
     
@@ -120,7 +119,10 @@
     // set cost to a label
     id cost = self.postObjectArray[indexPath.section][@"cost"];
     UILabel *costLabel = (UILabel *)[cell viewWithTag:2];
-    costLabel.text = [NSString stringWithFormat:@"%@", cost];
+    NSString *costS = [NSString stringWithFormat:@"%@", cost];
+    NSString *dollar = @"$/night";
+    NSString *costSentence = [costS stringByAppendingString:dollar];
+    costLabel.text = costSentence;
    
     return cell;
 }
