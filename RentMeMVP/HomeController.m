@@ -29,7 +29,6 @@
     [super viewDidLoad];
     self.postObjectArray = [NSMutableArray array];
     
-    _table.estimatedRowHeight = 50;
     _table.rowHeight = UITableViewAutomaticDimension;
     
     self.ref = [[FIRDatabase database] reference];
@@ -82,6 +81,18 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
+    
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postObjectArray[indexPath.row][@"image"]]];
+        if ( data == nil )
+            return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // WARNING: is the cell still using the same data by this point??
+            imageView.image = [UIImage imageWithData: data];
+        });
+    });
     
     // set title to a label
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
