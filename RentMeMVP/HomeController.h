@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeController : UIViewController
+@interface HomeController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property IBOutlet UITableView *table;
 @end

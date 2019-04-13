@@ -7,5 +7,6 @@ target 'RentMeMVP' do
 
   # Pods for RentMeMVP
    pod 'Firebase/Core'
+   pod 'Firebase/Database'
    pod 'Firebase/Auth'
 end

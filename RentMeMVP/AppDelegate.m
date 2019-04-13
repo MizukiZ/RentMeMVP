@@ -24,13 +24,10 @@
          if(user){
              // firebase user instance found
              self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"home"];
-             
          }else{
              //  no firebase user instance found
              self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"login"];
-             
          }
-         
      }];
     return YES;
 }
