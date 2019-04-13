@@ -65,10 +65,22 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.postObjectArray count];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.postObjectArray count];
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20.0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *v = [UIView new];
+    [v setBackgroundColor:[UIColor clearColor]];
+    return v;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,10 +94,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    // add border and color
+    cell.backgroundColor = UIColor.whiteColor;
+    cell.layer.borderWidth = 1;
+    cell.layer.cornerRadius = 3;
+    cell.clipsToBounds = true;
+    
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
     
     dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postObjectArray[indexPath.row][@"image"]]];
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postObjectArray[indexPath.section][@"image"]]];
         if ( data == nil )
             return;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -96,11 +114,11 @@
     
     // set title to a label
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
-    titleLabel.text = self.postObjectArray[indexPath.row][@"title"];
+    titleLabel.text = self.postObjectArray[indexPath.section][@"title"];
     
     
     // set cost to a label
-    id cost = self.postObjectArray[indexPath.row][@"cost"];
+    id cost = self.postObjectArray[indexPath.section][@"cost"];
     UILabel *costLabel = (UILabel *)[cell viewWithTag:2];
     costLabel.text = [NSString stringWithFormat:@"%@", cost];
    
