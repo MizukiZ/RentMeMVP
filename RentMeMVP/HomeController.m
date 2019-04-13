@@ -7,6 +7,7 @@
 //
 
 #import "HomeController.h"
+#import "PostDetailController.h"
 @import Firebase;
 
 @interface HomeController ()
@@ -80,6 +81,27 @@
     UIView *v = [UIView new];
     [v setBackgroundColor:[UIColor clearColor]];
     return v;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //where indexPath.row is the selected cell
+    NSLog(@"Clicked item title: %@", self.postObjectArray[indexPath.section][@"title"]);
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+}
+
+
+// set event for segue to pass post object
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        // get index path
+        NSIndexPath *selectedIndexPath = [self.table indexPathForSelectedRow];
+        
+        PostDetailController *nextVC = [segue destinationViewController];
+        
+        // path selected sections object to post detail view
+        nextVC.postObject = self.postObjectArray[selectedIndexPath.section];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

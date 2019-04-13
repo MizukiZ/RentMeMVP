@@ -252,11 +252,51 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="8DA-bR-gNi" id="QSE-L0-mJB"/>
+                        <segue destination="WpT-hN-TuG" kind="show" identifier="showDetail" id="U55-4E-Swj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pi4-B0-Tvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-652.17391304347836" y="823.66071428571422"/>
+        </scene>
+        <!--Post Detail Controller-->
+        <scene sceneID="Dnl-DF-i0I">
+            <objects>
+                <viewController storyboardIdentifier="postDetail" title="Post Detail Controller" id="WpT-hN-TuG" customClass="PostDetailController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="djt-Bz-iOm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lge-2p-Nrn">
+                                <rect key="frame" x="135" y="63" width="145" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECw-cv-l90">
+                                <rect key="frame" x="80" y="279" width="254" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-DN-h30">
+                                <rect key="frame" x="94" y="112" width="240" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="C5T-d9-imV"/>
+                    </view>
+                    <connections>
+                        <outlet property="postImageView" destination="pdT-DN-h30" id="TCB-Gd-CZA"/>
+                        <outlet property="postTitle" destination="ECw-cv-l90" id="Cse-58-gXi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbQ-g7-Bf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405.79710144927537" y="823.66071428571422"/>
         </scene>
     </scenes>
 </document>
