@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F4C515A66E096A0A990DBD5 /* libPods-RentMeMVP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */; };
 		D38FE2132261A0D5002AADD5 /* PostDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FE2122261A0D5002AADD5 /* PostDetailController.m */; };
+		D38FE2162261BD72002AADD5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FE2152261BD72002AADD5 /* NewPostController.m */; };
 		D3A5449C225C3DE300AC5647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5449B225C3DE300AC5647 /* AppDelegate.m */; };
 		D3A5449F225C3DE300AC5647 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5449E225C3DE300AC5647 /* ViewController.m */; };
 		D3A544A2225C3DE300AC5647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A544A0225C3DE300AC5647 /* Main.storyboard */; };
@@ -25,6 +26,8 @@
 		1AB1B867CE1B013548AB80AF /* Pods-RentMeMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentMeMVP.release.xcconfig"; path = "Target Support Files/Pods-RentMeMVP/Pods-RentMeMVP.release.xcconfig"; sourceTree = "<group>"; };
 		D38FE2112261A0D5002AADD5 /* PostDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailController.h; sourceTree = "<group>"; };
 		D38FE2122261A0D5002AADD5 /* PostDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailController.m; sourceTree = "<group>"; };
+		D38FE2142261BD72002AADD5 /* NewPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewPostController.h; sourceTree = "<group>"; };
+		D38FE2152261BD72002AADD5 /* NewPostController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
 		D3A54497225C3DE300AC5647 /* RentMeMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentMeMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A5449A225C3DE300AC5647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3A5449B225C3DE300AC5647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				D3A5449A225C3DE300AC5647 /* AppDelegate.h */,
 				D3A5449B225C3DE300AC5647 /* AppDelegate.m */,
 				D3A5449D225C3DE300AC5647 /* ViewController.h */,
+				D38FE2142261BD72002AADD5 /* NewPostController.h */,
+				D38FE2152261BD72002AADD5 /* NewPostController.m */,
 				D3A5449E225C3DE300AC5647 /* ViewController.m */,
 				D3A544A0225C3DE300AC5647 /* Main.storyboard */,
 				D3A544B6225C425D00AC5647 /* HomeController.h */,
@@ -218,6 +223,7 @@
 				D3A544B3225C423D00AC5647 /* LoginController.m in Sources */,
 				D3A544AA225C3DE400AC5647 /* main.m in Sources */,
 				D3A544B5225C424C00AC5647 /* HomeController.m in Sources */,
+				D38FE2162261BD72002AADD5 /* NewPostController.m in Sources */,
 				D3A5449C225C3DE300AC5647 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
