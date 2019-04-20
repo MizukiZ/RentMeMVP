@@ -18,6 +18,9 @@
 @end
 
 @implementation PostDetailController
+- (IBAction)backBtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad{
     NSLog(@"received: %@", self.postObject[@"title"]);

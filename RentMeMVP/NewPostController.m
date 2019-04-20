@@ -18,6 +18,9 @@
 @end
 
 @implementation NewPostController
+- (IBAction)backBtn:(id)sender { 
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)postBtn:(id)sender {
    // get values from field
