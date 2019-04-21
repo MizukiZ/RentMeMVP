@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F4C515A66E096A0A990DBD5 /* libPods-RentMeMVP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */; };
 		D3139B12226C06C200B8CD34 /* PostMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3139B11226C06C200B8CD34 /* PostMapController.m */; };
+		D3139B16226C2E5200B8CD34 /* sports.png in Resources */ = {isa = PBXBuildFile; fileRef = D3139B15226C2E5200B8CD34 /* sports.png */; };
 		D38FE2132261A0D5002AADD5 /* PostDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FE2122261A0D5002AADD5 /* PostDetailController.m */; };
 		D38FE2162261BD72002AADD5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FE2152261BD72002AADD5 /* NewPostController.m */; };
 		D3A5449C225C3DE300AC5647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5449B225C3DE300AC5647 /* AppDelegate.m */; };
@@ -27,6 +28,7 @@
 		1AB1B867CE1B013548AB80AF /* Pods-RentMeMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentMeMVP.release.xcconfig"; path = "Target Support Files/Pods-RentMeMVP/Pods-RentMeMVP.release.xcconfig"; sourceTree = "<group>"; };
 		D3139B10226C06C200B8CD34 /* PostMapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostMapController.h; sourceTree = "<group>"; };
 		D3139B11226C06C200B8CD34 /* PostMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostMapController.m; sourceTree = "<group>"; };
+		D3139B15226C2E5200B8CD34 /* sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sports.png; sourceTree = "<group>"; };
 		D38FE2112261A0D5002AADD5 /* PostDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailController.h; sourceTree = "<group>"; };
 		D38FE2122261A0D5002AADD5 /* PostDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailController.m; sourceTree = "<group>"; };
 		D38FE2142261BD72002AADD5 /* NewPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewPostController.h; sourceTree = "<group>"; };
@@ -78,9 +80,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D3139B14226C2E2600B8CD34 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D3139B15226C2E5200B8CD34 /* sports.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D3A5448E225C3DE300AC5647 = {
 			isa = PBXGroup;
 			children = (
+				D3139B14226C2E2600B8CD34 /* Images */,
 				D3A54499225C3DE300AC5647 /* RentMeMVP */,
 				D3A54498225C3DE300AC5647 /* Products */,
 				C36014A7AD43E3B788C54CC4 /* Pods */,
@@ -187,6 +198,7 @@
 			files = (
 				D3A544A7225C3DE400AC5647 /* LaunchScreen.storyboard in Resources */,
 				D3A544B1225C3E5B00AC5647 /* GoogleService-Info.plist in Resources */,
+				D3139B16226C2E5200B8CD34 /* sports.png in Resources */,
 				D3A544A4225C3DE400AC5647 /* Assets.xcassets in Resources */,
 				D3A544A2225C3DE300AC5647 /* Main.storyboard in Resources */,
 			);

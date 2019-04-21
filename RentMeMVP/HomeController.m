@@ -13,9 +13,58 @@
 @interface HomeController ()
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, atomic) NSMutableArray *postObjectArray;
+
+-(void)updateListWithCategory:(NSString *)category;
 @end
 
 @implementation HomeController
+
+-(void)updateListWithCategory:(NSString *)category{
+    // initialize object array
+    self.postObjectArray = [NSMutableArray array];
+    
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    [[[[self.ref child:@"Post"] queryOrderedByChild:@"category"] queryEqualToValue:category] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSDictionary *dict = snapshot.value;
+        
+        NSArray *keys = [dict allKeys];
+        for (int i = 0; i < keys.count; i++)
+        {
+            id key = keys[i];
+            // get each attirbutes
+            NSDictionary *value = dict[key];
+            
+            // add posts to post object array
+            [self.postObjectArray addObject:value];
+        }
+        
+        // reload the table view with fetched data
+        [self.table reloadData];
+    }withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+}
+
+- (IBAction)categorySportsBtn:(id)sender {
+    [self updateListWithCategory:@"Sport"];
+}
+- (IBAction)categoryAppliancesBtn:(id)sender {
+     [self updateListWithCategory:@"Appliance"];
+}
+- (IBAction)categoryInstrumentsBtn:(id)sender {
+     [self updateListWithCategory:@"Instrument"];
+}
+- (IBAction)categoryClothesBtn:(id)sender {
+     [self updateListWithCategory:@"Clothe"];
+}
+- (IBAction)categoryToolsBtn:(id)sender {
+     [self updateListWithCategory:@"Tool"];
+}
+- (IBAction)categoryRideBtn:(id)sender {
+     [self updateListWithCategory:@"Ride"];
+}
 
 - (IBAction)LogoutBtn:(id)sender {
     NSError *signOutError;
@@ -58,7 +107,7 @@
             // add posts to post object array
             [self.postObjectArray addObject:value];
         }
-        NSLog(@"array length: %d", [self.postObjectArray count]);
+    
         // reload the table view with fetched data
         [self.table reloadData];
         
