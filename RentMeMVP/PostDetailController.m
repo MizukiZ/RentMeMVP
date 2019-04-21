@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postCreatedAtView;
 @property (weak, nonatomic) IBOutlet UITextView *postDescriptionView;
 @property (weak, nonatomic) IBOutlet UILabel *postCostView;
-
 @end
 
 @implementation PostDetailController
@@ -59,5 +58,4 @@
     NSString *costSentence = [costS stringByAppendingString:dollar];
     self.postCostView.text = costSentence;
 }
-
 @end

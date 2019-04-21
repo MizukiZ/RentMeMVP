@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // google api config
+    [GMSServices provideAPIKey:@"AIzaSyCej2b2mzzRpIGzTSklzXZ8KE3jgwrFbxc"];
+    
+    // firebase config
     [FIRApp configure];
     [[FIRAuth auth]
      addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {

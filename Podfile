@@ -9,4 +9,8 @@ target 'RentMeMVP' do
    pod 'Firebase/Core'
    pod 'Firebase/Database'
    pod 'Firebase/Auth'
+   
+   # google apis
+   pod 'GoogleMaps'
+   pod 'GooglePlaces'
 end
