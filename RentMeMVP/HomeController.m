@@ -52,6 +52,9 @@
             Boolean rented = value[@"rented"];
             NSDate *createAt = [NSDate dateWithTimeIntervalSince1970:([value[@"created_at"] floatValue] / 1000.0)];
             
+//            // get location
+//            NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"lat", value[@"location"][@"lat"],"lon", value[@"location"][@"lon"], nil];
+            
             // add posts to post object array
             [self.postObjectArray addObject:value];
         }

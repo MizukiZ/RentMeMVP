@@ -7,6 +7,7 @@
 //
 
 #import "PostDetailController.h"
+#import "PostMapController.h"
 
 @interface PostDetailController()
 @property (weak, nonatomic) IBOutlet UILabel *postTitleView;
@@ -22,7 +23,6 @@
 }
 
 - (void)viewDidLoad{
-    NSLog(@"received: %@", self.postObject[@"title"]);
     
     // set passed object value to each field
     // set title
@@ -57,5 +57,16 @@
     NSString *dollar = @"$/night";
     NSString *costSentence = [costS stringByAppendingString:dollar];
     self.postCostView.text = costSentence;
+}
+
+// set event for segue to pass post object
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"postMap"]) {
+        PostMapController *mapVC = [segue destinationViewController];
+
+        // path selected sections object to post detail view
+        mapVC.locationObject = self.postObject[@"location"];
+    }
 }
 @end

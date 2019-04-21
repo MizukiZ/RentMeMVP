@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PostMapController : UIViewController
+@property(strong,nonatomic) NSDictionary *locationObject;
 @end

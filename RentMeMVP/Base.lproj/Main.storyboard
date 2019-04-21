@@ -346,7 +346,7 @@
                                 <rect key="frame" x="0.0" y="662" width="414" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="aGz-vw-V6V" kind="embed" id="f4D-CQ-g8y"/>
+                                    <segue destination="aGz-vw-V6V" kind="embed" identifier="postMap" id="f4D-CQ-g8y"/>
                                 </connections>
                             </containerView>
                         </subviews>
