@@ -22,29 +22,50 @@
 -(void)updateListWithCategory:(NSString *)category{
     // initialize object array
     self.postObjectArray = [NSMutableArray array];
-    
-    
     self.ref = [[FIRDatabase database] reference];
     
-    [[[[self.ref child:@"Post"] queryOrderedByChild:@"category"] queryEqualToValue:category] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        NSDictionary *dict = snapshot.value;
-        
-        NSArray *keys = [dict allKeys];
-        for (int i = 0; i < keys.count; i++)
-        {
-            id key = keys[i];
-            // get each attirbutes
-            NSDictionary *value = dict[key];
+    if(category == @"All"){
+        [[self.ref child:@"Post"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            NSDictionary *dict = snapshot.value;
             
-            // add posts to post object array
-            [self.postObjectArray addObject:value];
-        }
-        
-        // reload the table view with fetched data
-        [self.table reloadData];
-    }withCancelBlock:^(NSError * _Nonnull error) {
-        NSLog(@"%@", error.localizedDescription);
-    }];
+            NSArray *keys = [dict allKeys];
+            for (int i = 0; i < keys.count; i++)
+            {
+                id key = keys[i];
+                // get each attirbutes
+                NSDictionary *value = dict[key];
+                
+                // add posts to post object array
+                [self.postObjectArray addObject:value];
+            }
+            
+            // reload the table view with fetched data
+            [self.table reloadData];
+        }withCancelBlock:^(NSError * _Nonnull error) {
+            NSLog(@"%@", error.localizedDescription);
+        }];
+    }else{
+        [[[[self.ref child:@"Post"] queryOrderedByChild:@"category"] queryEqualToValue:category] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            NSDictionary *dict = snapshot.value;
+            
+            NSArray *keys = [dict allKeys];
+            for (int i = 0; i < keys.count; i++)
+            {
+                id key = keys[i];
+                // get each attirbutes
+                NSDictionary *value = dict[key];
+                
+                // add posts to post object array
+                [self.postObjectArray addObject:value];
+            }
+            
+            // reload the table view with fetched data
+            [self.table reloadData];
+        }withCancelBlock:^(NSError * _Nonnull error) {
+            NSLog(@"%@", error.localizedDescription);
+        }];
+    }
+    
 }
 
 - (IBAction)categorySportsBtn:(id)sender {
@@ -65,6 +86,9 @@
 - (IBAction)categoryRideBtn:(id)sender {
      [self updateListWithCategory:@"Ride"];
 }
+- (IBAction)resetCategoryBtn:(id)sender {
+    [self updateListWithCategory:@"All"];
+}
 
 - (IBAction)LogoutBtn:(id)sender {
     NSError *signOutError;
@@ -77,43 +101,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.postObjectArray = [NSMutableArray array];
-    
-    
-    self.ref = [[FIRDatabase database] reference];
-    
-    [[self.ref child:@"Post"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        NSDictionary *dict = snapshot.value;
-        
-        NSArray *keys = [dict allKeys];
-        for (int i = 0; i < keys.count; i++)
-        {
-            id key = keys[i];
-            
-            // get each attirbutes
-            NSDictionary *value = dict[key];
-            NSString *title =value[@"title"];
-            NSString *category =value[@"category"];
-            NSString *image =value[@"image"];
-            NSString *description =value[@"description"];
-            NSString *userId = value[@"user_id"];
-            id cost = value[@"cost"];
-            Boolean rented = value[@"rented"];
-            NSDate *createAt = [NSDate dateWithTimeIntervalSince1970:([value[@"created_at"] floatValue] / 1000.0)];
-            
-//            // get location
-//            NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"lat", value[@"location"][@"lat"],"lon", value[@"location"][@"lon"], nil];
-            
-            // add posts to post object array
-            [self.postObjectArray addObject:value];
-        }
-    
-        // reload the table view with fetched data
-        [self.table reloadData];
-        
-    } withCancelBlock:^(NSError * _Nonnull error) {
-        NSLog(@"%@", error.localizedDescription);
-    }];
+    [self updateListWithCategory:@"All"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

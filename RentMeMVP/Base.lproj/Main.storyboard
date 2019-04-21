@@ -246,6 +246,17 @@
                                     <outlet property="delegate" destination="ZaQ-Zt-WfC" id="ZN2-xC-53u"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-lg-ZHN">
+                                <rect key="frame" x="47" y="154" width="100" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.41176470588235292" green="0.85882352941176465" blue="0.85882352941176465" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Sports">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categorySportsBtn:" destination="ZaQ-Zt-WfC" eventType="touchUpInside" id="9Dc-F4-JzB"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUy-V1-sZ9">
                                 <rect key="frame" x="47" y="232" width="100" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,15 +323,15 @@
                                     <segue destination="qZV-zr-cCF" kind="show" id="mZS-kR-jAE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-lg-ZHN">
-                                <rect key="frame" x="47" y="154" width="100" height="70"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfp-uY-qo5">
+                                <rect key="frame" x="317" y="310" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41176470588235292" green="0.85882352941176465" blue="0.85882352941176465" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Sports">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="categorySportsBtn:" destination="ZaQ-Zt-WfC" eventType="touchUpInside" id="9Dc-F4-JzB"/>
+                                    <action selector="resetCategoryBtn:" destination="ZaQ-Zt-WfC" eventType="touchUpInside" id="bva-aI-7sn"/>
                                 </connections>
                             </button>
                         </subviews>
