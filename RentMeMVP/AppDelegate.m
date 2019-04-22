@@ -18,6 +18,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    // setting for slide menu
+    UIViewController *leftView = [mainStoryboard instantiateViewControllerWithIdentifier:@"leftViewController"];
+    UIViewController *centerView = [mainStoryboard instantiateViewControllerWithIdentifier:@"home"];
+    
+    UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:leftView];
+    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:centerView];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftNav];
+    
+    self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModePanningCenterView;
+    self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeTapCenterView;
+    
     
     // google api config
     [GMSServices provideAPIKey:@"AIzaSyCej2b2mzzRpIGzTSklzXZ8KE3jgwrFbxc"];
@@ -29,10 +43,10 @@
          NSLog(@"The auth status is:%@", user );
          if(user){
              // firebase user instance found
-             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"home"];
+             self.window.rootViewController = self.drawerController;
          }else{
              //  no firebase user instance found
-             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"login"];
+             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"login"];
          }
      }];
     return YES;

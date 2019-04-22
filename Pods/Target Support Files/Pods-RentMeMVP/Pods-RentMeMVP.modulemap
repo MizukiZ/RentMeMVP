@@ -1,0 +1,6 @@
+module Pods_RentMeMVP {
+  umbrella header "Pods-RentMeMVP-umbrella.h"
+
+  export *
+  module * { export * }
+}

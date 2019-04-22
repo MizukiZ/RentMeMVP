@@ -8,6 +8,7 @@
 
 #import "HomeController.h"
 #import "PostDetailController.h"
+#import "AppDelegate.h"
 @import Firebase;
 
 @interface HomeController ()
@@ -18,6 +19,10 @@
 @end
 
 @implementation HomeController
+- (IBAction)menuBtn:(id)sender {
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    [app.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
 -(void)updateListWithCategory:(NSString *)category{
     // initialize object array

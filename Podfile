@@ -13,4 +13,7 @@ target 'RentMeMVP' do
    # google apis
    pod 'GoogleMaps'
    pod 'GooglePlaces'
+   
+   # side menu library
+   pod 'MMDrawerController', '~> 0.5.7'
 end
