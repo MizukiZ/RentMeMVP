@@ -13,7 +13,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *postTitleField;
 @property (weak, nonatomic) IBOutlet UITextField *postCostField;
 @property (weak, nonatomic) IBOutlet UITextView *postDescriptionField;
+@property (weak, nonatomic) IBOutlet UIPickerView *postCategoryField;
 
+@property (strong, atomic) NSArray *categoriesArray;
+@property (atomic) NSString *selectedCategory;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
@@ -31,7 +34,11 @@
     float cost = [self.postCostField.text floatValue];
     NSString *descrirption = self.postDescriptionField.text;
     
-    NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption};
+    
+    
+    NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption, @"category": self.selectedCategory};
+    
+    NSLog(@"Post data is: %@", post);
     
     
     // send value to firebase database
@@ -42,7 +49,35 @@
     // get reference of firebase
     self.ref = [[FIRDatabase database] reference];
     
-    self.postDescriptionField.layer.borderWidth = 0.5f;
-    self.postDescriptionField.layer.borderColor = [[UIColor grayColor] CGColor];
+//      customize a borderline of description field
+     self.postDescriptionField.layer.borderWidth = 0.5f;
+     self.postDescriptionField.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    // set category array
+    self.categoriesArray = @[@"Sport", @"Appliance",@"Instrument",@"Clothe",@"Tool",@"Ride"];
+    
+    // setting for picker UI
+    self.postCategoryField.delegate = self;
+    self.postCategoryField.dataSource = self;
+
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.categoriesArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *titleRow;
+    titleRow = [NSString stringWithFormat:@"%@", [self.categoriesArray objectAtIndex:row]];
+    return titleRow;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    // here you can remember the selected row or perform some action
+    self.selectedCategory = self.categoriesArray[row];
 }
 @end
