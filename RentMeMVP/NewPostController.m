@@ -12,14 +12,17 @@
 @interface NewPostController()
 @property (weak, nonatomic) IBOutlet UITextField *postTitleField;
 @property (weak, nonatomic) IBOutlet UITextField *postCostField;
+@property (weak, nonatomic) IBOutlet UITextView *postDescriptionField;
 
-@property (weak, nonatomic) IBOutlet UITextField *postDescriptionField;
+
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation NewPostController
 - (IBAction)backBtn:(id)sender { 
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)cameraBtn:(id)sender {
 }
 
 - (IBAction)postBtn:(id)sender {
@@ -38,5 +41,8 @@
 - (void)viewDidLoad{
     // get reference of firebase
     self.ref = [[FIRDatabase database] reference];
+    
+    self.postDescriptionField.layer.borderWidth = 0.5f;
+    self.postDescriptionField.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 @end
