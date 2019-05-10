@@ -525,6 +525,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="locationClicked:" destination="qZV-zr-cCF" eventType="editingDidEnd" id="OIb-Vx-eZ3"/>
+                                    <action selector="locationFieldClicked:" destination="qZV-zr-cCF" eventType="touchDown" id="MP6-Un-VhL"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desctiption :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-5Z-n2w">
                                 <rect key="frame" x="86" y="484" width="97" height="26"/>
@@ -552,6 +556,7 @@
                         <outlet property="postCategoryField" destination="0B4-YP-lhF" id="4fK-Cj-XUI"/>
                         <outlet property="postCostField" destination="p3Q-VQ-iib" id="SVa-PM-PC5"/>
                         <outlet property="postDescriptionField" destination="eVV-DZ-wry" id="Yy1-4P-L9l"/>
+                        <outlet property="postLocationField" destination="um9-sw-nW1" id="lhi-QB-kh7"/>
                         <outlet property="postTitleField" destination="npO-qa-c5j" id="K2v-el-PlV"/>
                     </connections>
                 </viewController>

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate ()
 
@@ -34,7 +35,8 @@
     
     
     // google api config
-    [GMSServices provideAPIKey:@"AIzaSyCej2b2mzzRpIGzTSklzXZ8KE3jgwrFbxc"];
+    [GMSServices provideAPIKey:@"AIzaSyDH9-MnzdeD9dBxEUoih4HFHCJUV9w72c4"];
+    [GMSPlacesClient provideAPIKey:@"AIzaSyDH9-MnzdeD9dBxEUoih4HFHCJUV9w72c4"];
     
     // firebase config
     [FIRApp configure];
