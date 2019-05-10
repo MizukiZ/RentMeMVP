@@ -21,12 +21,37 @@
 }
 
 - (IBAction)LogoutBtn:(id)sender {
-    NSError *signOutError;
-    BOOL status = [[FIRAuth auth] signOut:&signOutError];
-    if (!status) {
-        NSLog(@"Error signing out: %@", signOutError);
-        return;
-    }
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Logout"
+                                 message:@"Are You Sure Want to Logout?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    //Add Buttons
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Yes"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                    NSError *signOutError;
+                                    BOOL status = [[FIRAuth auth] signOut:&signOutError];
+                                    if (!status) {
+                                        NSLog(@"Error signing out: %@", signOutError);
+                                        return;
+                                    }
+                                }];
+    
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle no process
+                                   // do nothing
+                               }];
+    
+    //Add your buttons to alert controller
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
