@@ -93,6 +93,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - SpinKit (1.2.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -102,6 +103,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - MMDrawerController (~> 0.5.7)
+  - SpinKit (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -121,6 +123,7 @@ SPEC REPOS:
     - leveldb-library
     - MMDrawerController
     - nanopb
+    - SpinKit
 
 SPEC CHECKSUMS:
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
@@ -139,7 +142,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
 
-PODFILE CHECKSUM: 37d58d821d40d78257fa3fcc8b113199e7da2b39
+PODFILE CHECKSUM: 0d7cd7dd3903a8658be367e93bd9929c3b6a4cab
 
 COCOAPODS: 1.6.1

@@ -8,6 +8,7 @@
 
 #import "NewPostController.h"
 #import "AppDelegate.h"
+#import <SpinKit/RTSpinKitView.h>
 @import GooglePlaces;
 
 @import Firebase;
@@ -179,7 +180,7 @@ didFailAutocompleteWithError:(NSError *)error {
     
         //set required field valiation
     if(!title || !cost || !self.postImageView.image || !description){
-        NSLog(@"Validation failed");
+        
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.allowsEditing = YES;
@@ -199,6 +200,14 @@ didFailAutocompleteWithError:(NSError *)error {
           [alert addAction:okButton];
          [self presentViewController:alert animated:YES completion:nil];
     }else{
+        
+        // set loading icon
+        RTSpinKitView *spinner = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleWave];
+        spinner.spinnerSize = 60;
+        spinner.center = CGPointMake(self.view.frame.size.width  / 2,
+                                     self.view.frame.size.height / 2);
+        [self.view addSubview:spinner];
+        
         // directory ref
         NSString *dir = @"ItemImages/";
         // unique id for the image
@@ -229,7 +238,8 @@ didFailAutocompleteWithError:(NSError *)error {
                                                                       
                                                                       NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at], @"updated_at":[NSNumber numberWithDouble:created_at] , @"rented": @NO, @"user_id": userId, @"id": itemId.key};
                                                                       
-                                                                      NSLog(@"Post data is: %@", post);
+                                                                      // dissmiss the loading icon
+                                                                      [spinner stopAnimating];
                                                                       
                                                                       // send value to firebase database
                                                                       [[[self.ref child:@"Post"] child:itemId.key] setValue:post];

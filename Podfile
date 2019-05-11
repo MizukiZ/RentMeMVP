@@ -15,6 +15,9 @@ target 'RentMeMVP' do
    pod 'GoogleMaps'
    pod 'GooglePlaces'
    
+   # spin kit
+   pod 'SpinKit', '~> 1.1'
+   
    # side menu library
    pod 'MMDrawerController', '~> 0.5.7'
 end
