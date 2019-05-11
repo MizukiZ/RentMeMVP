@@ -149,23 +149,27 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 - (IBAction)postBtn:(id)sender {
-   // get values from field
-    NSString *title = self.postTitleField.text;
-    float cost = [self.postCostField.text floatValue];
-    NSString *descrirption = self.postDescriptionField.text;
-    
-    // #########    the location info is hard coded due to the change of google api price plan    ##########
-    NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys:@"lat", @"-37.8104277", @"lon", @"144.9629153", nil];
-    
-    // Generate a data from the image selected
-    NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
-//
     // Get a reference to the storage service using the default Firebase App
     FIRStorage *storage = [FIRStorage storage];
     // Create a storage reference from our storage service
     FIRStorageReference *storageRef = [storage reference];
     
-    // Create a reference to the file you want to upload
+    // set item id
+    FIRDatabaseReference *itemId = [self.ref childByAutoId];
+    
+   // get values from field
+    NSString *title = self.postTitleField.text;
+    float cost = [self.postCostField.text floatValue];
+    NSString *description = self.postDescriptionField.text;
+//    NSTimeInterval created_at = [[NSDate date] timeIntervalSince1970];
+    long long created_at = (long long)([[NSDate date] timeIntervalSince1970] * 1000.0);
+    
+    // #########    the location info is hard coded due to the change of google api price plan    ##########
+    NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys: @"-37.8104277",@"lat",@"144.9629153",@"lon" , nil];
+    
+    // Generate a data from the image selected
+    NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
+//
     
     // directory ref
     NSString *dir = @"ItemImages/";
@@ -193,20 +197,24 @@ didFailAutocompleteWithError:(NSError *)error {
                                                                // Uh-oh, an error occurred!
                                                            } else {
                                                                // get downloadURL 
-                                                               NSURL *downloadURL = URL;
+                                                               NSString *downloadURL = [URL absoluteString];
+                                                               
+                                                               NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at]};
+                                                               
+                                                               NSLog(@"Post data is: %@", post);
+                                                               
+                                                               // send value to firebase database
+                                                                [[[self.ref child:@"Post"] child:itemId.key] setValue:post];
                                                            }
                                                        }];
                                                    }
                                                }];
     
     
-    NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption, @"category": self.selectedCategory, @"location": locationObject};
+//    NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption, @"category": self.selectedCategory, @"location": locationObject};
+//
+//    NSLog(@"Post data is: %@", post);
     
-    NSLog(@"Post data is: %@", post);
-    
-    
-    // send value to firebase database
-//    [[self.ref child:@"posts"] setValue:post];
 }
 
 - (void)viewDidLoad{
@@ -230,7 +238,7 @@ didFailAutocompleteWithError:(NSError *)error {
     // when a device does not have a camera show warning
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         noCamera = true;
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"No camera is detected!"
                                                               message:@"Device has no camera"
                                                              delegate:nil
                                                     cancelButtonTitle:@"OK"
