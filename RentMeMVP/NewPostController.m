@@ -167,53 +167,63 @@ didFailAutocompleteWithError:(NSError *)error {
     // #########    the location info is hard coded due to the change of google api price plan    ##########
     NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys: @"-37.8104277",@"lat",@"144.9629153",@"lon" , nil];
     
-    // Generate a data from the image selected
-    NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
-//
     
-    // directory ref
-    NSString *dir = @"ItemImages/";
-    // unique id for the image
-    NSString *uuid = [[NSUUID UUID] UUIDString];
-    FIRStorageReference *itemImageRef = [storageRef child:[dir stringByAppendingString:uuid]];
-    // Create the file metadata
-    FIRStorageMetadata *imageMetadata = [[FIRStorageMetadata alloc] init];
-    imageMetadata.contentType = @"image/jpeg";
+    // different process based on image field
     
-    
-    // Upload the file to the path "images/rivers.jpg"
-    FIRStorageUploadTask *uploadTask = [itemImageRef putData:imageData
-                                                 metadata:imageMetadata
-                                               completion:^(FIRStorageMetadata *metadata,
-                                                            NSError *error) {
-                                                   if (error != nil) {
-                                                       // Uh-oh, an error occurred!
-                                                   } else {
-                                                       // Metadata contains file metadata such as size, content-type, and download URL.
-                                                       int size = metadata.size;
-                                                       // You can also access to download URL after upload.
-                                                       [itemImageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
-                                                           if (error != nil) {
-                                                               // Uh-oh, an error occurred!
-                                                           } else {
-                                                               // get downloadURL 
-                                                               NSString *downloadURL = [URL absoluteString];
-                                                               
-                                                               NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at]};
-                                                               
-                                                               NSLog(@"Post data is: %@", post);
-                                                               
-                                                               // send value to firebase database
-                                                                [[[self.ref child:@"Post"] child:itemId.key] setValue:post];
-                                                           }
-                                                       }];
-                                                   }
-                                               }];
-    
-    
-//    NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption, @"category": self.selectedCategory, @"location": locationObject};
-//
-//    NSLog(@"Post data is: %@", post);
+    if(self.postImageView.image){
+        
+        
+        // Generate a data from the image selected
+        NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
+        //
+        
+        // directory ref
+        NSString *dir = @"ItemImages/";
+        // unique id for the image
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+        FIRStorageReference *itemImageRef = [storageRef child:[dir stringByAppendingString:uuid]];
+        // Create the file metadata
+        FIRStorageMetadata *imageMetadata = [[FIRStorageMetadata alloc] init];
+        imageMetadata.contentType = @"image/jpeg";
+        
+        
+        // Upload the file to the path "images/rivers.jpg"
+        FIRStorageUploadTask *uploadTask = [itemImageRef putData:imageData
+                                                        metadata:imageMetadata
+                                                      completion:^(FIRStorageMetadata *metadata,
+                                                                   NSError *error) {
+                                                          if (error != nil) {
+                                                              // Uh-oh, an error occurred!
+                                                          } else {
+                                                              // Metadata contains file metadata such as size, content-type, and download URL.
+                                                              int size = metadata.size;
+                                                              // You can also access to download URL after upload.
+                                                              [itemImageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+                                                                  if (error != nil) {
+                                                                      // Uh-oh, an error occurred!
+                                                                  } else {
+                                                                      // get downloadURL
+                                                                      NSString *downloadURL = [URL absoluteString];
+                                                                      
+                                                                      NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at]};
+                                                                      
+                                                                      NSLog(@"Post data is: %@", post);
+                                                                      
+                                                                      // send value to firebase database
+                                                                      [[[self.ref child:@"Post"] child:itemId.key] setValue:post];
+                                                                  }
+                                                              }];
+                                                          }
+                                                      }];
+        
+        
+    }else{
+        
+        NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"created_at": [NSNumber numberWithDouble:created_at], @"rented": @NO};
+        
+            NSLog(@"Post data is: %@", post);
+        
+    }
     
 }
 
