@@ -106,6 +106,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
     [self updateListWithCategory:@"All"];
 }
 

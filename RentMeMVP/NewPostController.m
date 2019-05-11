@@ -7,6 +7,7 @@
 //
 
 #import "NewPostController.h"
+#import "AppDelegate.h"
 @import GooglePlaces;
 
 @import Firebase;
@@ -149,6 +150,10 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 - (IBAction)postBtn:(id)sender {
+    // get current user id
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSString *userId = delegate.currentUserId;
+
     // Get a reference to the storage service using the default Firebase App
     FIRStorage *storage = [FIRStorage storage];
     // Create a storage reference from our storage service
@@ -159,20 +164,16 @@ didFailAutocompleteWithError:(NSError *)error {
     
    // get values from field
     NSString *title = self.postTitleField.text;
-    float cost = [self.postCostField.text floatValue];
+    double cost = [self.postCostField.text doubleValue];
     NSString *description = self.postDescriptionField.text;
 //    NSTimeInterval created_at = [[NSDate date] timeIntervalSince1970];
     long long created_at = (long long)([[NSDate date] timeIntervalSince1970] * 1000.0);
     
     // #########    the location info is hard coded due to the change of google api price plan    ##########
-    NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys: @"-37.8104277",@"lat",@"144.9629153",@"lon" , nil];
+    NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys: @(-37.8104277),@"lat",@(144.9629153),@"lon" , nil];
     
+
     
-    // different process based on image field
-    
-    if(self.postImageView.image){
-        
-        
         // Generate a data from the image selected
         NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
         //
@@ -205,7 +206,7 @@ didFailAutocompleteWithError:(NSError *)error {
                                                                       // get downloadURL
                                                                       NSString *downloadURL = [URL absoluteString];
                                                                       
-                                                                      NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at]};
+                                                                      NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"image": downloadURL, @"created_at": [NSNumber numberWithDouble:created_at], @"updated_at":[NSNumber numberWithDouble:created_at] , @"rented": @NO, @"user_id": userId, @"id": itemId.key};
                                                                       
                                                                       NSLog(@"Post data is: %@", post);
                                                                       
@@ -216,14 +217,7 @@ didFailAutocompleteWithError:(NSError *)error {
                                                           }
                                                       }];
         
-        
-    }else{
-        
-        NSDictionary *post = @{@"title": title, @"cost": @(cost), @"description": description, @"category": self.selectedCategory, @"location": locationObject, @"created_at": [NSNumber numberWithDouble:created_at], @"rented": @NO};
-        
-            NSLog(@"Post data is: %@", post);
-        
-    }
+
     
 }
 

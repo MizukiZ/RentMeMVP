@@ -42,9 +42,11 @@
     [FIRApp configure];
     [[FIRAuth auth]
      addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-         NSLog(@"The auth status is:%@", user );
          if(user){
              // firebase user instance found
+             self.currentUserId = [user uid];
+             
+                NSLog(@"The Current User ID is:%@", self.currentUserId );
              self.window.rootViewController = self.drawerController;
          }else{
              //  no firebase user instance found
