@@ -178,7 +178,7 @@ didFailAutocompleteWithError:(NSError *)error {
         NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
     
         //set required field valiation
-    if(!title || !cost || !self.postImageView.image || description){
+    if(!title || !cost || !self.postImageView.image || !description){
         NSLog(@"Validation failed");
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -237,6 +237,9 @@ didFailAutocompleteWithError:(NSError *)error {
                                                               }];
                                                           }
                                                       }];
+        
+        // dismiss itself view
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
