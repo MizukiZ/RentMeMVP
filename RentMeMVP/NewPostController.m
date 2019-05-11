@@ -91,14 +91,45 @@ didFailAutocompleteWithError:(NSError *)error {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    if(noCamera){
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }else{
     
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // show Dialog to choose between take a photo or pick up image from device
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Image upload"
+                                 message:@"Please choose a mothod for uploading your image."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    //Add Buttons
+    UIAlertAction* libraryButton = [UIAlertAction
+                                actionWithTitle:@"Photo library"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                     [self presentViewController:picker animated:YES completion:NULL];
+                                }];
+    
+    UIAlertAction* takePhotoButton = [UIAlertAction
+                               actionWithTitle:@"Take a photo"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                    [self presentViewController:picker animated:YES completion:NULL];
+                               }];
+    
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       // do nothing
+                                   }];
+    
+    //Add your buttons to alert controller
+    [alert addAction:libraryButton];
+    if(!noCamera){
+        // if there is a camera on the device, add this option
+        [alert addAction:takePhotoButton];
     }
+    [alert addAction:cancelButton];
     
-    [self presentViewController:picker animated:YES completion:NULL];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 // after user takes a image or choose an image, this callback is triggered
@@ -141,7 +172,7 @@ didFailAutocompleteWithError:(NSError *)error {
     // unique id for the image
     NSString *uuid = [[NSUUID UUID] UUIDString];
     FIRStorageReference *itemImageRef = [storageRef child:[dir stringByAppendingString:uuid]];
-    // Create the file metadat3
+    // Create the file metadata
     FIRStorageMetadata *imageMetadata = [[FIRStorageMetadata alloc] init];
     imageMetadata.contentType = @"image/jpeg";
     
@@ -161,8 +192,8 @@ didFailAutocompleteWithError:(NSError *)error {
                                                            if (error != nil) {
                                                                // Uh-oh, an error occurred!
                                                            } else {
+                                                               // get downloadURL 
                                                                NSURL *downloadURL = URL;
-                                                               NSLog(@"URL is : %@", downloadURL);
                                                            }
                                                        }];
                                                    }
