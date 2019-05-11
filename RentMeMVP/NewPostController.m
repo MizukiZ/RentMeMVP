@@ -233,13 +233,14 @@ didFailAutocompleteWithError:(NSError *)error {
                                                                       
                                                                       // send value to firebase database
                                                                       [[[self.ref child:@"Post"] child:itemId.key] setValue:post];
+                                                                      
+                                                                      // dismiss itself view
+                                                                      [self dismissViewControllerAnimated:YES completion:nil];
                                                                   }
                                                               }];
                                                           }
                                                       }];
         
-        // dismiss itself view
-        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

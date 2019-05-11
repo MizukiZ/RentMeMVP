@@ -104,6 +104,11 @@
     }
 }
 
+// get called when home page appears
+- (void)viewDidAppear:(BOOL)animated{
+     [self updateListWithCategory:@"All"];
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
