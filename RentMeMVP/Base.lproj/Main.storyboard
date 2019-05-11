@@ -447,7 +447,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="postBtn:" destination="qZV-zr-cCF" eventType="touchUpInside" id="Zx2-Gt-FD5"/>
+                                    <action selector="postBtn:" destination="qZV-zr-cCF" eventType="touchUpInside" id="dMt-1K-pwU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eat-xH-IF8">
@@ -498,13 +498,6 @@
                                     <action selector="cameraBtn:" destination="qZV-zr-cCF" eventType="touchUpInside" id="LkX-5n-1E6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take a photo or choose from your device" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cp-jl-CeT">
-                                <rect key="frame" x="172" y="115" width="150" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Catergory :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DD-VX-v9e">
                                 <rect key="frame" x="47" y="362" width="86" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -548,6 +541,10 @@
                                 <rect key="frame" x="141" y="333" width="160" height="85"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Goz-Gl-GDi">
+                                <rect key="frame" x="199" y="94" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Lol-Th-6ZY"/>
@@ -556,6 +553,7 @@
                         <outlet property="postCategoryField" destination="0B4-YP-lhF" id="4fK-Cj-XUI"/>
                         <outlet property="postCostField" destination="p3Q-VQ-iib" id="SVa-PM-PC5"/>
                         <outlet property="postDescriptionField" destination="eVV-DZ-wry" id="Yy1-4P-L9l"/>
+                        <outlet property="postImageView" destination="Goz-Gl-GDi" id="ZnG-mf-A08"/>
                         <outlet property="postLocationField" destination="um9-sw-nW1" id="lhi-QB-kh7"/>
                         <outlet property="postTitleField" destination="npO-qa-c5j" id="K2v-el-PlV"/>
                     </connections>

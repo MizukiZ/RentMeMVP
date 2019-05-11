@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewPostController : UIViewController
+@interface NewPostController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 

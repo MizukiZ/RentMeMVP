@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *postDescriptionField;
 @property (weak, nonatomic) IBOutlet UIPickerView *postCategoryField;
 @property (weak, nonatomic) IBOutlet UITextField *postLocationField;
+@property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 
 @property (strong, atomic) NSArray *categoriesArray;
 @property (atomic) NSString *selectedCategory;
@@ -26,6 +27,7 @@
 
 @implementation NewPostController{
     GMSAutocompleteFilter *_filter;
+    Boolean noCamera;
 }
 - (IBAction)locationFieldClicked:(id)sender {
      [self autocompleteClicked];
@@ -86,6 +88,33 @@ didFailAutocompleteWithError:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cameraBtn:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    if(noCamera){
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }else{
+    
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+// after user takes a image or choose an image, this callback is triggered
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.postImageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+// when user cancel the image picker view, this callback is triggered
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 - (IBAction)postBtn:(id)sender {
@@ -96,6 +125,48 @@ didFailAutocompleteWithError:(NSError *)error {
     
     // #########    the location info is hard coded due to the change of google api price plan    ##########
     NSDictionary *locationObject = [NSDictionary dictionaryWithObjectsAndKeys:@"lat", @"-37.8104277", @"lon", @"144.9629153", nil];
+    
+    // Generate a data from the image selected
+    NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
+//
+    // Get a reference to the storage service using the default Firebase App
+    FIRStorage *storage = [FIRStorage storage];
+    // Create a storage reference from our storage service
+    FIRStorageReference *storageRef = [storage reference];
+    
+    // Create a reference to the file you want to upload
+    
+    // directory ref
+    NSString *dir = @"ItemImages/";
+    // unique id for the image
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    FIRStorageReference *itemImageRef = [storageRef child:[dir stringByAppendingString:uuid]];
+    // Create the file metadat3
+    FIRStorageMetadata *imageMetadata = [[FIRStorageMetadata alloc] init];
+    imageMetadata.contentType = @"image/jpeg";
+    
+    
+    // Upload the file to the path "images/rivers.jpg"
+    FIRStorageUploadTask *uploadTask = [itemImageRef putData:imageData
+                                                 metadata:imageMetadata
+                                               completion:^(FIRStorageMetadata *metadata,
+                                                            NSError *error) {
+                                                   if (error != nil) {
+                                                       // Uh-oh, an error occurred!
+                                                   } else {
+                                                       // Metadata contains file metadata such as size, content-type, and download URL.
+                                                       int size = metadata.size;
+                                                       // You can also access to download URL after upload.
+                                                       [itemImageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+                                                           if (error != nil) {
+                                                               // Uh-oh, an error occurred!
+                                                           } else {
+                                                               NSURL *downloadURL = URL;
+                                                               NSLog(@"URL is : %@", downloadURL);
+                                                           }
+                                                       }];
+                                                   }
+                                               }];
     
     
     NSDictionary *post = @{@"title": title, @"cost": @(cost), @"descrirption": descrirption, @"category": self.selectedCategory, @"location": locationObject};
@@ -117,10 +188,26 @@ didFailAutocompleteWithError:(NSError *)error {
     
     // set category array
     self.categoriesArray = @[@"Sport", @"Appliance",@"Instrument",@"Clothe",@"Tool",@"Ride"];
+    // set default selected caterogyr
+    self.selectedCategory = @"Sport";
     
     // setting for picker UI
     self.postCategoryField.delegate = self;
     self.postCategoryField.dataSource = self;
+    
+    noCamera = false;
+    // when a device does not have a camera show warning
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        noCamera = true;
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
