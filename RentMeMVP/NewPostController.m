@@ -176,8 +176,29 @@ didFailAutocompleteWithError:(NSError *)error {
     
         // Generate a data from the image selected
         NSData *imageData = UIImageJPEGRepresentation(self.postImageView.image, 0.8);
-        //
+    
+        //set required field valiation
+    if(!title || !cost || !self.postImageView.image || description){
+        NSLog(@"Validation failed");
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
         
+        // show Dialog to ask for filling every field from submit form
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Error"
+                                     message:@"Please fill every filed including a image"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        //Add Buttons
+        UIAlertAction* okButton = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            // do noting
+                                        }];
+          [alert addAction:okButton];
+         [self presentViewController:alert animated:YES completion:nil];
+    }else{
         // directory ref
         NSString *dir = @"ItemImages/";
         // unique id for the image
@@ -216,9 +237,7 @@ didFailAutocompleteWithError:(NSError *)error {
                                                               }];
                                                           }
                                                       }];
-        
-
-    
+    }
 }
 
 - (void)viewDidLoad{
