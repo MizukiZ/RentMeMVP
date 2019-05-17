@@ -383,7 +383,7 @@
                         <viewLayoutGuide key="safeArea" id="2Up-5b-Da8"/>
                     </view>
                     <navigationItem key="navigationItem" id="rx1-CG-xbo">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;&lt;" id="7Z1-EJ-k79">
+                        <barButtonItem key="leftBarButtonItem" image="menuS" id="7Z1-EJ-k79">
                             <connections>
                                 <action selector="menuBtn:" destination="ZaQ-Zt-WfC" id="igx-7c-0Vz"/>
                             </connections>
@@ -803,12 +803,13 @@
         <image name="instrument" width="50" height="50"/>
         <image name="logo" width="512" height="512"/>
         <image name="logout" width="50" height="50"/>
+        <image name="menuS" width="24" height="24"/>
         <image name="post" width="64" height="64"/>
         <image name="ride" width="50" height="50"/>
         <image name="sports" width="50" height="50"/>
         <image name="tool" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8sg-4P-9iI"/>
+        <segue reference="mZS-kR-jAE"/>
     </inferredMetricsTieBreakers>
 </document>
