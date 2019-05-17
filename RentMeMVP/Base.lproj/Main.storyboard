@@ -493,7 +493,6 @@
                                 <rect key="frame" x="86" y="109" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1210459981" green="0.85722959840000001" blue="0.7917657025" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="camera.png"/>
                                 <connections>
                                     <action selector="cameraBtn:" destination="qZV-zr-cCF" eventType="touchUpInside" id="LkX-5n-1E6"/>
                                 </connections>
@@ -715,9 +714,6 @@
             <point key="canvasLocation" x="1173.913043478261" y="1524.7767857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="camera.png" width="75" height="75"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mZS-kR-jAE"/>
     </inferredMetricsTieBreakers>
