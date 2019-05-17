@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PostUserDetailController.h">
+   </FileRef>
+   <FileRef
+      location = "group:PostUserDetailController.m">
+   </FileRef>
+   <FileRef
       location = "group:RentMeMVP.xcodeproj">
    </FileRef>
    <FileRef

@@ -17,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *postCreatedAtView;
 @property (weak, nonatomic) IBOutlet UITextView *postDescriptionView;
 @property (weak, nonatomic) IBOutlet UILabel *postCostView;
-@property (weak, nonatomic) IBOutlet UIImageView *postUserImage;
 @property (weak, nonatomic) IBOutlet UILabel *postUserName;
+@property (weak, nonatomic) IBOutlet UIButton *postUserImage;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) NSDictionary *postUser;
 @end
@@ -46,8 +46,8 @@
             if ( data == nil )
                 return;
             dispatch_async(dispatch_get_main_queue(), ^{
-                // WARNING: is the cell still using the same data by this point??
-                self.postUserImage.image = [UIImage imageWithData: data];
+                [self.postUserImage setImage:[UIImage imageWithData: data] forState:UIControlStateNormal];
+//                self.postUserImage.image = [UIImage imageWithData: data];
             });
         });
         // set name
