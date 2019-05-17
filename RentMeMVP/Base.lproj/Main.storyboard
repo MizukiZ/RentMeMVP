@@ -383,7 +383,7 @@
                         <viewLayoutGuide key="safeArea" id="2Up-5b-Da8"/>
                     </view>
                     <navigationItem key="navigationItem" id="rx1-CG-xbo">
-                        <barButtonItem key="leftBarButtonItem" image="menuS" id="7Z1-EJ-k79">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="7Z1-EJ-k79">
                             <connections>
                                 <action selector="menuBtn:" destination="ZaQ-Zt-WfC" id="igx-7c-0Vz"/>
                             </connections>
@@ -796,14 +796,14 @@
     <resources>
         <image name="account" width="50" height="50"/>
         <image name="appliances" width="50" height="50"/>
-        <image name="box" width="64" height="64"/>
-        <image name="camera" width="100" height="100"/>
+        <image name="box" width="50" height="50"/>
+        <image name="camera" width="50" height="50"/>
         <image name="clothes" width="50" height="50"/>
         <image name="homeimg" width="600" height="400"/>
         <image name="instrument" width="50" height="50"/>
-        <image name="logo" width="512" height="512"/>
+        <image name="logo" width="83.5" height="83.5"/>
         <image name="logout" width="50" height="50"/>
-        <image name="menuS" width="24" height="24"/>
+        <image name="menu" width="12" height="12"/>
         <image name="post" width="64" height="64"/>
         <image name="ride" width="50" height="50"/>
         <image name="sports" width="50" height="50"/>
