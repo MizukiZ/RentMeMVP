@@ -52,7 +52,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fl-M6-MH9">
-                                <rect key="frame" x="308.5" y="248" width="50" height="40"/>
+                                <rect key="frame" x="303.5" y="248" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.41176470590000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="04F-31-twf"/>
@@ -67,7 +67,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="40" id="tov-bI-xs7"/>
                                     <constraint firstAttribute="width" constant="38" id="vvP-2b-Fln">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=compact-widthClass=compact" constant="60"/>
                                     </constraint>
                                 </constraints>
                                 <state key="normal" title="Login">
@@ -1190,14 +1190,14 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-7C-7V1">
-                                <rect key="frame" x="308.5" y="248" width="50" height="40"/>
+                                <rect key="frame" x="303.5" y="248" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.41176470590000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4tV-43-oHq">
                                         <variation key="widthClass=regular" constant="45"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="38" id="8CF-6p-WLb">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=compact-widthClass=compact" constant="60"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="75" id="AdO-ny-kyy"/>
                                     <constraint firstAttribute="height" constant="40" id="SLC-bn-mqj"/>
