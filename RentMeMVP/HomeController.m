@@ -118,6 +118,9 @@
     [self updateListWithCategory:@"All"];
 }
 
+- (BOOL)allowsHeaderViewsToFloat{
+    return NO;
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
