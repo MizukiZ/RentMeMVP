@@ -107,6 +107,9 @@
 // get called when home page appears
 - (void)viewDidAppear:(BOOL)animated{
      [self updateListWithCategory:@"All"];
+    
+    self.table.estimatedRowHeight = 150;
+    self.table.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)viewDidLoad{
@@ -116,22 +119,16 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.postObjectArray count];
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 20.0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.postObjectArray count];
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *v = [UIView new];
-    [v setBackgroundColor:[UIColor clearColor]];
-    return v;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    float height = 150.0f;
+    
+    return height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -151,7 +148,7 @@
         PostDetailController *nextVC = [segue destinationViewController];
         
         // path selected sections object to post detail view
-        nextVC.postObject = self.postObjectArray[selectedIndexPath.section];
+        nextVC.postObject = self.postObjectArray[selectedIndexPath.row];
     }
 }
 
@@ -165,17 +162,11 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
-    // add border and color
-    cell.backgroundColor = UIColor.whiteColor;
-    cell.layer.borderWidth = 1;
-    cell.layer.cornerRadius = 3;
-    cell.clipsToBounds = true;
-    
+        
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
     
     dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postObjectArray[indexPath.section][@"image"]]];
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postObjectArray[indexPath.row][@"image"]]];
         if ( data == nil )
             return;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -186,11 +177,11 @@
     
     // set title to a label
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
-    titleLabel.text = self.postObjectArray[indexPath.section][@"title"];
+    titleLabel.text = self.postObjectArray[indexPath.row][@"title"];
     
     
     // set cost to a label
-    id cost = self.postObjectArray[indexPath.section][@"cost"];
+    id cost = self.postObjectArray[indexPath.row][@"cost"];
     UILabel *costLabel = (UILabel *)[cell viewWithTag:2];
     NSString *costS = [NSString stringWithFormat:@"%@", cost];
     NSString *dollar = @"$/night";
