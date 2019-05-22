@@ -749,14 +749,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hao-ZC-or5">
                                 <rect key="frame" x="339" y="48" width="294" height="214"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cost :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKV-Gv-oGj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKV-Gv-oGj">
                                         <rect key="frame" x="59" y="73" width="45" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Catergory :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DD-VX-v9e">
-                                        <rect key="frame" x="20" y="121" width="86" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catergory :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DD-VX-v9e">
+                                        <rect key="frame" x="20" y="119" width="86" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -839,6 +839,11 @@
                                         <exclude reference="Hxg-1n-bfl"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Hxg-1n-bfl"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="w4v-Jt-8kb"/>
@@ -895,7 +900,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biL-CC-A7T">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biL-CC-A7T">
                                 <rect key="frame" x="293.5" y="305" width="80" height="50"/>
                                 <color key="backgroundColor" red="0.1210459981" green="0.85722959840000001" blue="0.7917657025" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -968,6 +973,7 @@
                             <constraint firstItem="RXn-It-Wqy" firstAttribute="top" secondItem="Lol-Th-6ZY" secondAttribute="top" constant="67" id="CB9-dn-7no"/>
                             <constraint firstItem="hao-ZC-or5" firstAttribute="leading" secondItem="eVV-DZ-wry" secondAttribute="trailing" constant="63" id="EAR-lI-Q3Z"/>
                             <constraint firstItem="biL-CC-A7T" firstAttribute="top" secondItem="eVV-DZ-wry" secondAttribute="bottom" constant="42" id="G5o-S2-Rqr"/>
+                            <constraint firstItem="Lol-Th-6ZY" firstAttribute="bottom" secondItem="biL-CC-A7T" secondAttribute="bottom" constant="20" id="I2n-fz-dFd"/>
                             <constraint firstItem="eVV-DZ-wry" firstAttribute="centerX" secondItem="hao-ZC-or5" secondAttribute="centerX" id="Ivx-Vq-D1o"/>
                             <constraint firstItem="hao-ZC-or5" firstAttribute="centerX" secondItem="Lol-Th-6ZY" secondAttribute="centerX" id="Joq-BB-kZo"/>
                             <constraint firstItem="biL-CC-A7T" firstAttribute="leading" secondItem="eVV-DZ-wry" secondAttribute="trailing" constant="-15.5" id="KTU-xN-h2C"/>
@@ -1002,6 +1008,7 @@
                         <viewLayoutGuide key="safeArea" id="Lol-Th-6ZY"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="I2n-fz-dFd"/>
                                 <exclude reference="2tv-Pm-34A"/>
                                 <exclude reference="CB9-dn-7no"/>
                                 <exclude reference="xTW-IM-HPG"/>
@@ -1066,6 +1073,7 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="I2n-fz-dFd"/>
                                 <include reference="CB9-dn-7no"/>
                                 <include reference="xTW-IM-HPG"/>
                                 <include reference="om6-1n-7ts"/>
