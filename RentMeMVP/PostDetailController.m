@@ -8,6 +8,8 @@
 
 #import "PostDetailController.h"
 #import "PostMapController.h"
+@import Firebase;
+
 
 @interface PostDetailController()
 @property (weak, nonatomic) IBOutlet UILabel *postTitleView;
@@ -15,14 +17,46 @@
 @property (weak, nonatomic) IBOutlet UILabel *postCreatedAtView;
 @property (weak, nonatomic) IBOutlet UITextView *postDescriptionView;
 @property (weak, nonatomic) IBOutlet UILabel *postCostView;
+@property (weak, nonatomic) IBOutlet UILabel *postUserName;
+@property (weak, nonatomic) IBOutlet UIButton *postUserImage;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) NSDictionary *postUser;
 @end
 
 @implementation PostDetailController
+
 - (IBAction)backBtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad{
+    
+    // gte user information based on the passed post user id
+     self.ref = [[FIRDatabase database] reference];
+    
+    [[[self.ref child:@"Users"] child:self.postObject[@"user_id"]] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        self.postUser = snapshot.value;
+        
+        // set post user details
+        // set image
+        
+        // fist set place holder and if there is a user image then overwrite
+        dispatch_async(dispatch_get_global_queue(0,0), ^{
+            NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.postUser[@"image"]]];
+            if ( data == nil )
+                return;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.postUserImage setImage:[UIImage imageWithData: data] forState:UIControlStateNormal];
+//                self.postUserImage.image = [UIImage imageWithData: data];
+            });
+        });
+        // set name
+        self.postUserName.text = self.postUser[@"userName"];
+        
+        
+    }withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
     
     // set passed object value to each field
     // set title

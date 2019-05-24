@@ -21,7 +21,6 @@
 }
 
 - (void)loadView {
-     NSLog(@"received: %@", self.locationObject);
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[self.locationObject[@"lat"] floatValue]

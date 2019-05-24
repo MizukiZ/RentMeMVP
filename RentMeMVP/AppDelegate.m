@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate ()
 
@@ -34,15 +35,18 @@
     
     
     // google api config
-    [GMSServices provideAPIKey:@"AIzaSyCej2b2mzzRpIGzTSklzXZ8KE3jgwrFbxc"];
+    [GMSServices provideAPIKey:@"AIzaSyDH9-MnzdeD9dBxEUoih4HFHCJUV9w72c4"];
+    [GMSPlacesClient provideAPIKey:@"AIzaSyDH9-MnzdeD9dBxEUoih4HFHCJUV9w72c4"];
     
     // firebase config
     [FIRApp configure];
     [[FIRAuth auth]
      addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-         NSLog(@"The auth status is:%@", user );
          if(user){
              // firebase user instance found
+             self.currentUserId = [user uid];
+             
+                NSLog(@"The Current User ID is:%@", self.currentUserId );
              self.window.rootViewController = self.drawerController;
          }else{
              //  no firebase user instance found
