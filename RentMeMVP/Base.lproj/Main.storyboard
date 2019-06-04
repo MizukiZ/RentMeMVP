@@ -609,7 +609,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hY-dz-Vvw">
-                                <rect key="frame" x="0.0" y="88" width="375" height="778"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="822"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMw-Gg-zRl" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -1382,7 +1382,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jpF-7Z-aeF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1034"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1078"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="6gh-92-vgJ" userLabel="HeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
@@ -1878,8 +1878,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="ZaQ-Zt-WfC" id="0di-i2-YEE"/>
-                                    <outlet property="delegate" destination="ZaQ-Zt-WfC" id="1nb-Kp-ANv"/>
+                                    <outlet property="dataSource" destination="3ZQ-4q-sXQ" id="vk7-si-MBf"/>
+                                    <outlet property="delegate" destination="3ZQ-4q-sXQ" id="Rfi-r8-R7e"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="782-WE-eZ1">
@@ -1942,6 +1942,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="BW5-9m-EC0" id="Rak-AB-TV2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ce8-8B-WfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2274,7 +2277,8 @@
         <image name="tool" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="UDx-gd-D07"/>
         <segue reference="mZS-kR-jAE"/>
-        <segue reference="U55-4E-Swj"/>
+        <segue reference="OSM-Ea-ywf"/>
     </inferredMetricsTieBreakers>
 </document>
