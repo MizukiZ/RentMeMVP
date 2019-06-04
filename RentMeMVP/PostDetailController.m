@@ -37,6 +37,7 @@
     
     [[[self.ref child:@"Users"] child:self.postObject[@"user_id"]] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         self.postUser = snapshot.value;
+        [self.postUser setValue:self.postObject[@"user_id"] forKey:@"id"];
         
         // set post user details
         // set image
@@ -105,8 +106,7 @@
     }
     
     if ([segue.identifier isEqualToString:@"showPostUser"]) {
-        NSLog(@"Correct method is called");
-        NSLog(@"%@", self.postUser);
+    
         PostUserDetailController *nextVC = [segue destinationViewController];
         
         // path selected sections object to post detail view

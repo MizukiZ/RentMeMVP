@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PostUserDetailController : UIViewController
+@interface PostUserDetailController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property(strong,nonatomic) NSDictionary *userObject;
+@property IBOutlet UITableView *table;
+
 @end
 
 NS_ASSUME_NONNULL_END
