@@ -23,6 +23,7 @@
 		D3A544B1225C3E5B00AC5647 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3A544B0225C3E5B00AC5647 /* GoogleService-Info.plist */; };
 		D3A544B3225C423D00AC5647 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A544B2225C423D00AC5647 /* LoginController.m */; };
 		D3A544B5225C424C00AC5647 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A544B4225C424C00AC5647 /* HomeController.m */; };
+		D3F4F05B22A629270043305C /* PostUserDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4F05A22A629270043305C /* PostUserDetailController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		D3A544B4225C424C00AC5647 /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		D3A544B6225C425D00AC5647 /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		D3A544B7225C426D00AC5647 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		D3F4F05922A629260043305C /* PostUserDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostUserDetailController.h; sourceTree = "<group>"; };
+		D3F4F05A22A629270043305C /* PostUserDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostUserDetailController.m; sourceTree = "<group>"; };
 		FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RentMeMVP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +121,8 @@
 				D3139B3D226C86D700B8CD34 /* LeftViewController.m */,
 				D38FE2152261BD72002AADD5 /* NewPostController.m */,
 				D34BB24522851D2200A8C91A /* OwnPostController.h */,
+				D3F4F05922A629260043305C /* PostUserDetailController.h */,
+				D3F4F05A22A629270043305C /* PostUserDetailController.m */,
 				D34BB24622851D2200A8C91A /* OwnPostController.m */,
 				D3139B10226C06C200B8CD34 /* PostMapController.h */,
 				D3139B11226C06C200B8CD34 /* PostMapController.m */,
@@ -268,6 +273,7 @@
 				D38FE2132261A0D5002AADD5 /* PostDetailController.m in Sources */,
 				D3A5449F225C3DE300AC5647 /* ViewController.m in Sources */,
 				D34BB24422851CC100A8C91A /* AccountViewController.m in Sources */,
+				D3F4F05B22A629270043305C /* PostUserDetailController.m in Sources */,
 				D3A544B3225C423D00AC5647 /* LoginController.m in Sources */,
 				D3A544AA225C3DE400AC5647 /* main.m in Sources */,
 				D34BB24722851D2200A8C91A /* OwnPostController.m in Sources */,

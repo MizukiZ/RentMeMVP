@@ -526,7 +526,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="150" id="vl7-Ql-Cfr">
                                         <rect key="frame" x="0.0" y="368.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vl7-Ql-Cfr" id="d6o-oB-KEu">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vl7-Ql-Cfr" id="d6o-oB-KEu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -681,7 +681,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button" image="placeholder"/>
                                                 <connections>
-                                                    <segue destination="50X-ov-Fe5" kind="show" id="UDx-gd-D07"/>
+                                                    <segue destination="50X-ov-Fe5" kind="show" identifier="showPostUser" id="UDx-gd-D07"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post User name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWD-cm-eqT">
@@ -1156,6 +1156,11 @@
                                 <exclude reference="CB9-dn-7no"/>
                                 <exclude reference="xTW-IM-HPG"/>
                                 <exclude reference="yoP-JB-f8Y"/>
+                                <exclude reference="8eb-E0-YbG"/>
+                                <exclude reference="AoO-eJ-ZEv"/>
+                                <exclude reference="Kal-yc-L1b"/>
+                                <exclude reference="Rhw-00-3W6"/>
+                                <exclude reference="uR5-zP-Q22"/>
                                 <exclude reference="5dk-8e-Zoa"/>
                                 <exclude reference="6o8-TL-Arl"/>
                                 <exclude reference="EAR-lI-Q3Z"/>
@@ -1169,11 +1174,6 @@
                                 <exclude reference="nx4-MW-RAG"/>
                                 <exclude reference="pYx-rH-l0o"/>
                                 <exclude reference="t4I-nU-uxZ"/>
-                                <exclude reference="8eb-E0-YbG"/>
-                                <exclude reference="AoO-eJ-ZEv"/>
-                                <exclude reference="Kal-yc-L1b"/>
-                                <exclude reference="Rhw-00-3W6"/>
-                                <exclude reference="uR5-zP-Q22"/>
                                 <exclude reference="f6q-Bs-96I"/>
                                 <exclude reference="9u7-wL-YMV"/>
                                 <exclude reference="TcP-CP-aMe"/>
@@ -1197,13 +1197,13 @@
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="constraints">
+                                <include reference="uR5-zP-Q22"/>
                                 <include reference="5dk-8e-Zoa"/>
                                 <exclude reference="EAR-lI-Q3Z"/>
                                 <exclude reference="L36-gW-KQT"/>
                                 <include reference="Zwd-x3-ate"/>
                                 <include reference="fTu-0m-Dbj"/>
                                 <include reference="pYx-rH-l0o"/>
-                                <include reference="uR5-zP-Q22"/>
                                 <include reference="TcP-CP-aMe"/>
                                 <include reference="4bm-5R-cXu"/>
                                 <include reference="7Ns-cn-rdf"/>
@@ -1219,10 +1219,10 @@
                                 <include reference="I2n-fz-dFd"/>
                                 <include reference="CB9-dn-7no"/>
                                 <include reference="xTW-IM-HPG"/>
-                                <include reference="6o8-TL-Arl"/>
-                                <include reference="t4I-nU-uxZ"/>
                                 <include reference="8eb-E0-YbG"/>
                                 <include reference="Rhw-00-3W6"/>
+                                <include reference="6o8-TL-Arl"/>
+                                <include reference="t4I-nU-uxZ"/>
                                 <include reference="om6-1n-7ts"/>
                                 <include reference="r3N-jX-TYv"/>
                                 <include reference="KTU-xN-h2C"/>
@@ -1234,13 +1234,13 @@
                             <mask key="constraints">
                                 <include reference="2tv-Pm-34A"/>
                                 <include reference="yoP-JB-f8Y"/>
+                                <include reference="AoO-eJ-ZEv"/>
+                                <include reference="Kal-yc-L1b"/>
                                 <exclude reference="Joq-BB-kZo"/>
                                 <exclude reference="UU4-Cf-yrW"/>
                                 <include reference="WXx-kd-uJI"/>
                                 <exclude reference="Y7R-rw-BP7"/>
                                 <include reference="nx4-MW-RAG"/>
-                                <include reference="AoO-eJ-ZEv"/>
-                                <include reference="Kal-yc-L1b"/>
                                 <include reference="f6q-Bs-96I"/>
                                 <include reference="9u7-wL-YMV"/>
                                 <include reference="1LP-xU-zzQ"/>
@@ -1389,32 +1389,32 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="6YC-oi-gnw">
-                                            <rect key="frame" x="32.5" y="30" width="150" height="150"/>
+                                            <rect key="frame" x="52" y="30" width="150" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="150" id="sgk-db-Soi"/>
                                                 <constraint firstAttribute="width" constant="150" id="yF9-Rt-yh9"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AO-SI-fWU">
-                                            <rect key="frame" x="208.5" y="30" width="45" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="228" y="29.5" width="50.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-8h-pa0">
-                                            <rect key="frame" x="208.5" y="76" width="41" height="21"/>
+                                            <rect key="frame" x="228" y="76" width="41" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User's posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4u-5Y-o2o">
-                                            <rect key="frame" x="32.5" y="281" width="96" height="21"/>
+                                            <rect key="frame" x="52" y="281" width="96" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eu-cg-aoI">
-                                            <rect key="frame" x="208.5" y="125" width="25" height="21"/>
+                                            <rect key="frame" x="228" y="125" width="25" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1449,7 +1449,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ia-6l-xeb">
-                                                    <rect key="frame" x="284" y="31" width="42" height="21"/>
+                                                    <rect key="frame" x="323" y="31" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1492,10 +1492,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Vo-9O-fV2"/>
                     </view>
+                    <connections>
+                        <outlet property="bioField" destination="7Eu-cg-aoI" id="ApD-o1-bsh"/>
+                        <outlet property="emailField" destination="4G1-8h-pa0" id="b9x-gg-WjS"/>
+                        <outlet property="userImageField" destination="6YC-oi-gnw" id="EH5-19-Evf"/>
+                        <outlet property="userNameField" destination="5AO-SI-fWU" id="77t-g0-VD3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDH-HK-Q7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847.826086956522" y="873.91304347826099"/>
+            <point key="canvasLocation" x="1847.826086956522" y="873.88392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fFI-Qh-5LB">
@@ -1705,13 +1711,6 @@
                                 <exclude reference="qH1-9i-tWj"/>
                                 <exclude reference="rf8-cG-rmb"/>
                                 <exclude reference="ubY-YR-7VE"/>
-                                <exclude reference="G0M-UT-hGl"/>
-                                <exclude reference="HFf-Ur-9Us"/>
-                                <exclude reference="K3i-DJ-DaJ"/>
-                                <exclude reference="PQf-c4-Gbg"/>
-                                <exclude reference="g5c-9K-B9z"/>
-                                <exclude reference="hpa-TD-oef"/>
-                                <exclude reference="jzi-Q9-Adb"/>
                                 <exclude reference="10k-aL-aw4"/>
                                 <exclude reference="6uW-Ax-S7Y"/>
                                 <exclude reference="T7j-Pz-W9z"/>
@@ -1726,6 +1725,13 @@
                                 <exclude reference="jcC-t8-MMl"/>
                                 <exclude reference="pSo-aO-ShA"/>
                                 <exclude reference="rqu-iN-8FQ"/>
+                                <exclude reference="G0M-UT-hGl"/>
+                                <exclude reference="HFf-Ur-9Us"/>
+                                <exclude reference="K3i-DJ-DaJ"/>
+                                <exclude reference="PQf-c4-Gbg"/>
+                                <exclude reference="g5c-9K-B9z"/>
+                                <exclude reference="hpa-TD-oef"/>
+                                <exclude reference="jzi-Q9-Adb"/>
                                 <exclude reference="HYt-eO-VAw"/>
                                 <exclude reference="IuC-VM-nr0"/>
                                 <exclude reference="bJ0-VV-UVa"/>
@@ -1742,13 +1748,13 @@
                                 <include reference="nBn-KS-0eX"/>
                                 <include reference="UVy-0y-0sl"/>
                                 <include reference="gB7-TA-9Jf"/>
-                                <exclude reference="g5c-9K-B9z"/>
-                                <include reference="hpa-TD-oef"/>
-                                <exclude reference="jzi-Q9-Adb"/>
                                 <include reference="Wjt-gi-GcM"/>
                                 <include reference="r8v-EC-qJA"/>
                                 <include reference="h5q-LX-fIw"/>
                                 <include reference="rqu-iN-8FQ"/>
+                                <exclude reference="g5c-9K-B9z"/>
+                                <include reference="hpa-TD-oef"/>
+                                <exclude reference="jzi-Q9-Adb"/>
                                 <include reference="dpw-LV-gyV"/>
                             </mask>
                         </variation>
@@ -1757,11 +1763,11 @@
                                 <include reference="LAg-hu-ai5"/>
                                 <include reference="6na-af-Cs8"/>
                                 <include reference="ige-Hg-HD4"/>
-                                <include reference="HFf-Ur-9Us"/>
                                 <include reference="10k-aL-aw4"/>
                                 <include reference="T7j-Pz-W9z"/>
                                 <include reference="54Q-qi-HOy"/>
                                 <include reference="jcC-t8-MMl"/>
+                                <include reference="HFf-Ur-9Us"/>
                                 <include reference="HYt-eO-VAw"/>
                                 <include reference="IuC-VM-nr0"/>
                             </mask>
@@ -1771,11 +1777,11 @@
                                 <include reference="2Yt-RG-u6u"/>
                                 <include reference="qH1-9i-tWj"/>
                                 <include reference="rf8-cG-rmb"/>
-                                <include reference="G0M-UT-hGl"/>
-                                <include reference="K3i-DJ-DaJ"/>
                                 <include reference="fsh-CM-2yf"/>
                                 <include reference="5zy-9B-zaR"/>
                                 <include reference="HqP-Dq-un9"/>
+                                <include reference="G0M-UT-hGl"/>
+                                <include reference="K3i-DJ-DaJ"/>
                                 <include reference="m68-F6-Zte"/>
                                 <include reference="rG8-A8-T8F"/>
                             </mask>
@@ -1787,10 +1793,10 @@
                                 <include reference="mFI-DZ-dfY"/>
                                 <include reference="mu0-YF-HvF"/>
                                 <exclude reference="ubY-YR-7VE"/>
-                                <include reference="PQf-c4-Gbg"/>
                                 <include reference="6uW-Ax-S7Y"/>
                                 <include reference="CsO-96-d1O"/>
                                 <include reference="pSo-aO-ShA"/>
+                                <include reference="PQf-c4-Gbg"/>
                                 <exclude reference="bJ0-VV-UVa"/>
                                 <include reference="bf4-d1-TzR"/>
                                 <include reference="cjB-6T-hoS"/>
@@ -1811,7 +1817,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrv-bI-O14">
-                                <rect key="frame" x="0.0" y="273" width="453" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="&lt; Back" id="P2t-jG-OrV">
                                         <connections>
@@ -1841,7 +1847,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHi-Cx-eMt">
-                                                    <rect key="frame" x="284" y="31" width="42" height="21"/>
+                                                    <rect key="frame" x="323" y="31" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

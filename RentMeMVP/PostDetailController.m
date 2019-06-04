@@ -9,6 +9,7 @@
 #import "PostDetailController.h"
 #import "PostMapController.h"
 @import Firebase;
+#import "PostUserDetailController.h"
 
 
 @interface PostDetailController()
@@ -102,5 +103,15 @@
         // path selected sections object to post detail view
         mapVC.locationObject = self.postObject[@"location"];
     }
+    
+    if ([segue.identifier isEqualToString:@"showPostUser"]) {
+        NSLog(@"Correct method is called");
+        NSLog(@"%@", self.postUser);
+        PostUserDetailController *nextVC = [segue destinationViewController];
+        
+        // path selected sections object to post detail view
+        nextVC.userObject = self.postUser;
+    }
 }
+
 @end
