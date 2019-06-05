@@ -1283,6 +1283,10 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3W-G1-KEt">
                                                 <rect key="frame" x="80" y="0.0" width="70" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="BmN-E9-fpR"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ZYM-ha-bq1"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="New post">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1301,6 +1305,10 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHK-0m-qWu">
                                                 <rect key="frame" x="80" y="0.0" width="70" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="XvI-zT-9qq"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ziK-4g-9bc"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Own post">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1319,6 +1327,10 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUO-qs-lc2">
                                                 <rect key="frame" x="80" y="0.0" width="70" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="7yg-YC-CcW"/>
+                                                    <constraint firstAttribute="height" constant="50" id="PbU-76-bS5"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Account">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1337,6 +1349,10 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-fM-egF">
                                                 <rect key="frame" x="80" y="0.0" width="70" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="DgN-cE-4ae"/>
+                                                    <constraint firstAttribute="height" constant="50" id="iO1-Jl-7wU"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Logout">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1544,8 +1560,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsC-6y-cD6">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MsC-6y-cD6">
                                 <rect key="frame" x="270.5" y="147" width="51" height="31"/>
+                                <connections>
+                                    <action selector="editModeSwitch:" destination="Uck-Me-cYX" eventType="valueChanged" id="te8-tt-v3q"/>
+                                </connections>
                             </switch>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="a2A-qF-ch8" userLabel="nameAndLocation">
                                 <rect key="frame" x="82" y="304" width="250" height="151"/>
@@ -1805,6 +1824,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="userBio" destination="piM-3C-Rak" id="bwf-c7-PzU"/>
+                        <outlet property="userImage" destination="Ifm-a9-fie" id="XCA-Q3-sMF"/>
+                        <outlet property="userLocation" destination="pNa-IF-zMH" id="jOV-Zc-4d7"/>
+                        <outlet property="userName" destination="3WB-59-6Wg" id="vY8-zI-IcD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfK-qe-XNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2277,8 +2302,7 @@
         <image name="tool" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UDx-gd-D07"/>
-        <segue reference="mZS-kR-jAE"/>
+        <segue reference="8sg-4P-9iI"/>
         <segue reference="OSM-Ea-ywf"/>
     </inferredMetricsTieBreakers>
 </document>
