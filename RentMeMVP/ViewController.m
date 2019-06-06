@@ -10,6 +10,7 @@
 @import Firebase;
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @end
@@ -21,12 +22,21 @@
 
     NSString *email = self.emailInput.text;
     NSString *password = self.passwordInput.text;
+    NSString *userName = self.nameInput.text;
     
     [[FIRAuth auth] createUserWithEmail:email
                                password:password
                              completion:^(FIRAuthDataResult * _Nullable authResult,
                                           NSError * _Nullable error) {
                                  if(authResult){
+                                     
+                                      // create new user with registerd infomation
+                                     NSDictionary *newUser = @{@"email": email, @"password": password, @"userName": userName};
+                                     
+                                     NSString *id = [FIRAuth auth].currentUser.uid;
+                                     // send value to firebase database
+                                     [[[[[FIRDatabase database] reference] child:@"Users"] child:id] setValue:newUser];
+                                     
                                      // create an account successfully
                                      [[FIRAuth auth] signInWithEmail:email
                                                             password:password
