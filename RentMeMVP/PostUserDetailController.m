@@ -47,7 +47,6 @@
                 [self.postObjectArray addObject:value];
             }
             
-           NSLog(@"from the final point %@", self.postObjectArray);
         // reload the table view with fetched data
         [self.table reloadData];
         }withCancelBlock:^(NSError * _Nonnull error) {
