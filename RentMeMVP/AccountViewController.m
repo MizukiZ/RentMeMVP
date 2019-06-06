@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userLocation;
 @property (weak, nonatomic) IBOutlet UITextView *userBio;
+@property (weak, nonatomic) IBOutlet UIButton *updateButton;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) NSDictionary *user;
 
@@ -27,6 +28,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)updateBtn:(id)sender {
+ //update button clicked
+}
 
 - (IBAction)editModeSwitch:(UISwitch *)sender {
     if (sender.on) {
@@ -40,12 +44,14 @@
     self.userName.enabled = YES;
     self.userLocation.enabled = YES;
     self.userBio.editable = YES;
+    self.updateButton.enabled = YES;
 }
 
 - (void)editModeOff{
     self.userName.enabled = NO;
     self.userLocation.enabled = NO;
     self.userBio.editable = NO;
+    self.updateButton.enabled = NO;
 }
 - (IBAction)locationClicked:(id)sender {
     [self autocompleteClicked];
