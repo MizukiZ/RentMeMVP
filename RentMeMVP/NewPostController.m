@@ -258,6 +258,10 @@ didFailAutocompleteWithError:(NSError *)error {
     // get reference of firebase
     self.ref = [[FIRDatabase database] reference];
     
+    // add style to text view
+    self.postDescriptionField.layer.borderWidth = 1;
+    self.postDescriptionField.layer.borderColor = [[UIColor grayColor] CGColor];
+    
 //      customize a borderline of description field
      self.postDescriptionField.layer.borderWidth = 0.5f;
      self.postDescriptionField.layer.borderColor = [[UIColor grayColor] CGColor];

@@ -10,6 +10,7 @@
 		4F4C515A66E096A0A990DBD5 /* libPods-RentMeMVP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE477F7B24198D593183FE53 /* libPods-RentMeMVP.a */; };
 		D3139B12226C06C200B8CD34 /* PostMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3139B11226C06C200B8CD34 /* PostMapController.m */; };
 		D3139B3E226C86D700B8CD34 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3139B3D226C86D700B8CD34 /* LeftViewController.m */; };
+		D349C9E822A9334300DE6D9E /* EditPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = D349C9E722A9334300DE6D9E /* EditPostController.m */; };
 		D34BB24422851CC100A8C91A /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BB24322851CC100A8C91A /* AccountViewController.m */; };
 		D34BB24722851D2200A8C91A /* OwnPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BB24622851D2200A8C91A /* OwnPostController.m */; };
 		D38FE2132261A0D5002AADD5 /* PostDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FE2122261A0D5002AADD5 /* PostDetailController.m */; };
@@ -33,6 +34,8 @@
 		D3139B11226C06C200B8CD34 /* PostMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostMapController.m; sourceTree = "<group>"; };
 		D3139B3C226C86D700B8CD34 /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		D3139B3D226C86D700B8CD34 /* LeftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		D349C9E622A9334300DE6D9E /* EditPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditPostController.h; sourceTree = "<group>"; };
+		D349C9E722A9334300DE6D9E /* EditPostController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditPostController.m; sourceTree = "<group>"; };
 		D34BB24222851CC100A8C91A /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		D34BB24322851CC100A8C91A /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		D34BB24522851D2200A8C91A /* OwnPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnPostController.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				D3A544A8225C3DE400AC5647 /* Info.plist */,
 				D3A544A9225C3DE400AC5647 /* main.m */,
 				D3A544B0225C3E5B00AC5647 /* GoogleService-Info.plist */,
+				D349C9E622A9334300DE6D9E /* EditPostController.h */,
+				D349C9E722A9334300DE6D9E /* EditPostController.m */,
 			);
 			path = RentMeMVP;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				D3F4F05B22A629270043305C /* PostUserDetailController.m in Sources */,
 				D3A544B3225C423D00AC5647 /* LoginController.m in Sources */,
 				D3A544AA225C3DE400AC5647 /* main.m in Sources */,
+				D349C9E822A9334300DE6D9E /* EditPostController.m in Sources */,
 				D34BB24722851D2200A8C91A /* OwnPostController.m in Sources */,
 				D3A544B5225C424C00AC5647 /* HomeController.m in Sources */,
 				D38FE2162261BD72002AADD5 /* NewPostController.m in Sources */,

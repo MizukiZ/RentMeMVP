@@ -7,7 +7,7 @@
 //
 
 #import "OwnPostController.h"
-#import "PostDetailController.h"
+#import "EditPostController.h"
 @import Firebase;
 
 
@@ -110,6 +110,20 @@
     return cell;
 }
 
+// set event for segue to pass post object
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"editPostPage"]) {
+        // get index path
+        NSIndexPath *selectedIndexPath = [self.table indexPathForSelectedRow];
+        
+        EditPostController *nextVC = [segue destinationViewController];
+        
+        // path selected sections object to post detail view
+        nextVC.postObject = self.postObjectArray[selectedIndexPath.row];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //where indexPath.row is the selected cell
     NSLog(@"Clicked item title: %@", self.postObjectArray[indexPath.row][@"title"]);
@@ -126,7 +140,8 @@
                                     actionWithTitle:@"Edit"
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
-                                       
+                                        // go to edit post page 
+                                        [self performSegueWithIdentifier:@"editPostPage" sender:self];
                                     }];
     
     UIAlertAction* deleteButton = [UIAlertAction
