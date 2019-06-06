@@ -136,7 +136,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //where indexPath.row is the selected cell
-    NSLog(@"Clicked item title: %@", self.postObjectArray[indexPath.section][@"title"]);
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 

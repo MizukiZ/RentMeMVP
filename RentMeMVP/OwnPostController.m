@@ -29,9 +29,10 @@
     self.table.rowHeight = UITableViewAutomaticDimension;
     
     self.ref = [[FIRDatabase database] reference];
-    self.postObjectArray = [NSMutableArray array];
     
-    [[[[self.ref child:@"Post"]queryOrderedByChild:@"user_id"] queryEqualToValue:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[self.ref child:@"Post"]queryOrderedByChild:@"user_id"] queryEqualToValue:[FIRAuth auth].currentUser.uid] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        
+        self.postObjectArray = [NSMutableArray array];
         
         NSDictionary *dict = snapshot.value;
         
@@ -107,6 +108,74 @@
     costLabel.text = costSentence;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //where indexPath.row is the selected cell
+    NSLog(@"Clicked item title: %@", self.postObjectArray[indexPath.row][@"title"]);
+    
+    NSString *targetPostID = self.postObjectArray[indexPath.row][@"id"];
+    
+    // show Dialog to choose between take a photo or pick up image from device
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Actions"
+                                 message:@""
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    //Add Buttons
+    UIAlertAction* editButton = [UIAlertAction
+                                    actionWithTitle:@"Edit"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                       
+                                    }];
+    
+    UIAlertAction* deleteButton = [UIAlertAction
+                                      actionWithTitle:@"Delete"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                         
+                                          // confirmation dialog
+                                          UIAlertController * alert = [UIAlertController
+                                                                       alertControllerWithTitle:@"Delete"
+                                                                       message:@"Are You Sure?"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                          //Add Buttons
+                                          UIAlertAction* yesButton = [UIAlertAction
+                                                                      actionWithTitle:@"Yes"
+                                                                      style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {
+                                                                          //Handle your yes please button action here
+                                                                          [[[self->_ref child:@"Post"] child:targetPostID] removeValue];
+                                                                      }];
+                                          
+                                          UIAlertAction* noButton = [UIAlertAction
+                                                                     actionWithTitle:@"Cancel"
+                                                                     style:UIAlertActionStyleDefault
+                                                                     handler:^(UIAlertAction * action) {
+                                                                         //Handle no process
+                                                                         // do nothing
+                                                                     }];
+                                          
+                                          //Add your buttons to alert controller
+                                          [alert addAction:yesButton];
+                                          [alert addAction:noButton];
+                                          
+                                          [self presentViewController:alert animated:YES completion:nil];
+                                      }];
+    
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       // do nothing
+                                   }];
+    
+    //Add your buttons to alert controller
+    [alert addAction:editButton];
+    [alert addAction:deleteButton];
+    [alert addAction:cancelButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
