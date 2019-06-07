@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EditPostController : UIViewController
+@interface EditPostController : UIViewController<CLLocationManagerDelegate>
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property(strong,nonatomic) NSDictionary *postObject;
 @end
 
