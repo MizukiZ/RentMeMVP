@@ -242,10 +242,42 @@ didFailAutocompleteWithError:(NSError *)error {
                                                                       [spinner stopAnimating];
                                                                       
                                                                       // send value to firebase database
-                                                                      [[[self.ref child:@"Post"] child:itemId.key] setValue:post];
-                                                                      
-                                                                      // dismiss itself view
-                                                                      [self dismissViewControllerAnimated:YES completion:nil];
+                                                                      [[[self.ref child:@"Post"] child:itemId.key] setValue:post withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                                                                          if (error) {
+                                                                              UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                                                                                              message:@"Sorry something went wrong!"
+                                                                                                                             delegate:nil
+                                                                                                                    cancelButtonTitle:nil
+                                                                                                                    otherButtonTitles:nil, nil];
+                                                                              [toast show];
+                                                                              
+                                                                              int duration = 1; // duration in seconds
+                                                                              
+                                                                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                                                                  [toast dismissWithClickedButtonIndex:0 animated:YES];
+                                                                              });
+                                                                              
+                                                                              // dismiss itself view
+                                                                              [self dismissViewControllerAnimated:YES completion:nil];
+                                                                          } else {
+                                                                              
+                                                                              UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                                                                                              message:@"Created successfully!"
+                                                                                                                             delegate:nil
+                                                                                                                    cancelButtonTitle:nil
+                                                                                                                    otherButtonTitles:nil, nil];
+                                                                              [toast show];
+                                                                              
+                                                                              int duration = 1; // duration in seconds
+                                                                              
+                                                                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                                                                  [toast dismissWithClickedButtonIndex:0 animated:YES];
+                                                                              });
+                                                                              
+                                                                              // dismiss itself view
+                                                                              [self dismissViewControllerAnimated:YES completion:nil];
+                                                                          }
+                                                                      }];
                                                                   }
                                                               }];
                                                           }
